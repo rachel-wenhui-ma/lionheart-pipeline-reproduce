@@ -30,9 +30,12 @@ output_path = "features_sample.csv"
 # 1. Fragment length
 # -----------------------------
 print("Step 1: Extracting fragment lengths...")
-lengths = extract_fragment_lengths(bam_path)
+lengths = extract_fragment_lengths(bam_path, chrom=chrom)
+if len(lengths) == 0:
+    raise ValueError(f"No valid fragments found in {bam_path} for {chrom}")
 frag_stats = compute_fragment_features(lengths)
 print(f"  Global frag mean: {frag_stats['frag_mean']:.2f} bp")
+print(f"  Total fragments: {len(lengths)}")
 
 # -----------------------------
 # 2. Coverage

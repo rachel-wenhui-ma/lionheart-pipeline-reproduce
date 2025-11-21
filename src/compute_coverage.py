@@ -28,5 +28,9 @@ def compute_coverage(bam_path, chrom="chr21", bin_size=100):
 
 def normalize_coverage(coverage):
     """Optional simple normalization."""
-    return (coverage - np.mean(coverage)) / np.std(coverage)
+    mean = np.mean(coverage)
+    std = np.std(coverage)
+    if std == 0:
+        return coverage - mean
+    return (coverage - mean) / std
 
