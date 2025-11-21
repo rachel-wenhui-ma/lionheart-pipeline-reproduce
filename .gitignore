@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+
+# Output files
+*.csv
+*.npy
+*.npz
+features_sample.csv
+
+# Data files (keep masks, exclude large files)
+data/chr21.fa
+data/chr21.fa.fai
+*.bam
+*.bai
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
