@@ -39,7 +39,20 @@ def load_mask(bed_path, chrom, chrom_len, bin_size):
 
 def compute_correlations(coverage, mask_paths, chrom, chrom_len, bin_size):
     """
-    Compute Pearson correlation between coverage and each mask.
+    Compute correlation features between coverage and each mask.
+    Currently implements only Pearson R and p-value (features 0 and 1 of LIONHEART's 10 feature types).
+    
+    LIONHEART's 10 feature types:
+    0) Pearson R
+    1) p-value
+    2) Normalized dot product (fraction_within)
+    3) Cosine Similarity
+    4) x_sum
+    5) y_sum
+    6) x_squared_sum
+    7) y_squared_sum
+    8) xy_sum
+    9) n (number of bins)
     """
     corr_stats = {}
     for name, path in mask_paths.items():
@@ -51,11 +64,15 @@ def compute_correlations(coverage, mask_paths, chrom, chrom_len, bin_size):
             corr_stats[f"p_value_{name}"] = 1.0
             continue
         cov_subset = coverage[:min_len]
-        mask_subset = mask[:min_len]
+        mask_subset = mask[:min_len].astype(np.float64)
         try:
             r, p = pearsonr(cov_subset, mask_subset)
             corr_stats[f"pearson_r_{name}"] = float(r) if not np.isnan(r) else 0.0
             corr_stats[f"p_value_{name}"] = float(p) if not np.isnan(p) else 1.0
+            # TODO: Add remaining 8 feature types in future commits
+            # 2) fraction_within = xy_sum / n
+            # 3) cosine_similarity
+            # 4-9) x_sum, y_sum, x_squared_sum, y_squared_sum, xy_sum, n
         except Exception as e:
             print(f"Warning: Error computing correlation for {name}: {e}")
             corr_stats[f"pearson_r_{name}"] = 0.0
