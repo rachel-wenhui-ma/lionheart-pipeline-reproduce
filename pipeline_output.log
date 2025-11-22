@@ -1,0 +1,56 @@
+[W::hts_idx_load3] The index file is older than the data file: /mnt/d/MADS/25 Fall/CSC 527/Final project/example_bam_hg38/IC38.hg38.downsampled.aligned.sorted.markdup.bam.bai
+[W::hts_idx_load3] The index file is older than the data file: /mnt/d/MADS/25 Fall/CSC 527/Final project/example_bam_hg38/IC38.hg38.downsampled.aligned.sorted.markdup.bam.bai
+[W::hts_idx_load3] The index file is older than the data file: /mnt/d/MADS/25 Fall/CSC 527/Final project/example_bam_hg38/IC38.hg38.downsampled.aligned.sorted.markdup.bam.bai
+[W::hts_idx_load3] The index file is older than the data file: /mnt/d/MADS/25 Fall/CSC 527/Final project/example_bam_hg38/IC38.hg38.downsampled.aligned.sorted.markdup.bam.bai
+Using real LIONHEART masks from: /home/mara/lionheart_work/resources
+  Loading 5 DNase cell types: ['8988t__cancer_cl', 'a172__cancer_cl', 'a549__cancer_cl', 'a673__cancer_cl', 'achn__cancer_cl']
+Step 1: Extracting fragment lengths...
+  Global frag mean: 155.18 bp
+  Total fragments: 35263
+
+Step 1b: Extracting per-bin fragment lengths...
+  Per-bin fragment length: 467100 bins
+  Bins with fragment data: 31,492
+  Mean frag length (per-bin): 155.33 bp
+  Note: Per-bin fragment length used for correction, not output as feature
+
+Step 2: Computing coverage...
+  Coverage computed: 467100 bins
+  Mean coverage: 0.15
+
+Step 3: Calculating GC content...
+  GC content computed: 467100 bins
+  Mean GC content: 0.3514 (35.14%)
+
+Step 4: Detecting outliers with ZIPoisson...
+  Clipping threshold: 11
+  Bins to clip: 53 (0.01%)
+  Coverage after clipping: mean=0.1515
+
+Step 5: Applying GC correction...
+  GC correction factors: 20 bins
+  Mean correction factor: 1.0000
+  Coverage after GC correction: mean=5.3864
+
+Step 6: Applying insert size correction...
+  Insert size correction factors calculated
+  Bins with valid insert size: 31,492
+  Coverage after insert size correction: mean=3.7829
+
+Step 7: Applying megabin normalization...
+  Megabin normalization: 5MB megabins, 500KB stride
+  Coverage after megabin normalization: mean=3.7829
+
+Step 8: Loading masks and computing correlations...
+  Loading real LIONHEART masks for chr21...
+  Loaded 5 cell type masks
+  Computing features for 5 cell types...
+
+Step 9: Assembling features...
+[+] Wrote features to: features_sample.csv
+
+Done!
+
+Note: Fragment length, coverage, and GC statistics are computed but not included in output.
+      Output contains only correlation features (matching LIONHEART format).
+      Total features: 50

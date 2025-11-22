@@ -6,11 +6,13 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from src.extract_insert_size import extract_fragment_lengths, compute_fragment_features, extract_fragment_lengths_per_bin
 from src.compute_coverage import compute_coverage, normalize_coverage, calculate_gc_correction_factors, correct_gc_bias, normalize_megabins_simple
-from src.compute_correlation import compute_correlations
+from src.compute_correlation import compute_all_features
 from src.assemble_features import write_feature_vector
 from src.utils import calculate_gc_content_per_bin
 from src.outlier_detection import find_clipping_threshold, clip_outliers
 from src.insert_size_correction import calculate_insert_size_correction_factors, correct_bias
+from src.load_masks import load_cell_type_masks, load_cell_type_list
+from pathlib import Path
 import pysam
 import numpy as np
 
@@ -29,11 +31,31 @@ else:
 chrom = "chr21"
 bin_size = 100
 
-mask_paths = {
-    "Tcell": "data/masks/Tcell.bed",
-    "Monocyte": "data/masks/Monocyte.bed",
-    "Liver": "data/masks/Liver.bed"
-}
+# Configuration for real LIONHEART masks
+use_real_masks = True  # Set to False to use test masks
+if os.path.exists("/mnt/d"):
+    # Try to find LIONHEART resources
+    resources_dir = Path("/home/mara/lionheart_work/resources")
+    if not resources_dir.exists():
+        resources_dir = Path(f"{base_path}/lionheart_resources")
+else:
+    resources_dir = Path("../lionheart_resources")
+
+if use_real_masks and resources_dir.exists():
+    print(f"Using real LIONHEART masks from: {resources_dir}")
+    # Load first 5 DNase cell types for testing
+    cell_type_df = load_cell_type_list(resources_dir, "DNase")
+    test_cell_types = cell_type_df["cell_type"].head(5).tolist()
+    print(f"  Loading {len(test_cell_types)} DNase cell types: {test_cell_types}")
+    mask_paths = None  # Will be loaded later
+else:
+    print("Using test masks")
+    mask_paths = {
+        "Tcell": "data/masks/Tcell.bed",
+        "Monocyte": "data/masks/Monocyte.bed",
+        "Liver": "data/masks/Liver.bed"
+    }
+    use_real_masks = False
 
 output_path = "features_sample.csv"
 
@@ -174,10 +196,45 @@ print(f"  Coverage after megabin normalization: mean={np.mean(coverage_megabin_n
 coverage_norm = normalize_coverage(coverage_megabin_norm)
 
 # -----------------------------
-# 8. Correlation
+# 8. Load Masks and Compute Correlation
 # -----------------------------
-print("\nStep 8: Computing correlations...")
-corr_stats = compute_correlations(coverage_norm, mask_paths, chrom, chrom_len, bin_size)
+print("\nStep 8: Loading masks and computing correlations...")
+
+if use_real_masks:
+    # Load real LIONHEART masks
+    print(f"  Loading real LIONHEART masks for {chrom}...")
+    real_masks = load_cell_type_masks(
+        resources_dir=resources_dir,
+        mask_type="DNase",
+        chrom=chrom,
+        cell_types=test_cell_types,
+        bin_indices=None,  # No bin filtering for now
+        bin_size=bin_size,
+    )
+    print(f"  Loaded {len(real_masks)} cell type masks")
+    
+    # Convert masks to format expected by compute_all_features
+    # compute_all_features expects a dict of {name: mask_array}
+    mask_dict = real_masks
+    
+    # Compute features for all masks
+    print(f"  Computing features for {len(mask_dict)} cell types...")
+    corr_stats = compute_all_features(
+        coverage_norm, 
+        mask_dict, 
+        chrom, 
+        chrom_len, 
+        bin_size
+    )
+else:
+    # Use test masks (BED format)
+    corr_stats = compute_all_features(
+        coverage_norm, 
+        mask_paths, 
+        chrom, 
+        chrom_len, 
+        bin_size
+    )
 
 # -----------------------------
 # 9. Assemble

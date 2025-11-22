@@ -38,9 +38,17 @@ def load_mask(bed_path, chrom, chrom_len, bin_size):
     return mask
 
 
-def compute_all_features(coverage, mask_paths, chrom, chrom_len, bin_size):
+def compute_all_features(coverage, mask_dict, chrom, chrom_len, bin_size):
     """
     Compute all 10 LIONHEART feature types between coverage and each mask.
+    
+    Parameters:
+        coverage: Coverage array
+        mask_dict: Dictionary mapping cell_type -> mask_array or mask_path
+                  If value is array, use directly; if string, load from BED file
+        chrom: Chromosome name
+        chrom_len: Chromosome length
+        bin_size: Bin size
     
     LIONHEART's 10 feature types:
     0) Pearson R
@@ -58,8 +66,14 @@ def compute_all_features(coverage, mask_paths, chrom, chrom_len, bin_size):
     """
     all_features = {}
     
-    for name, path in mask_paths.items():
-        mask = load_mask(path, chrom, chrom_len, bin_size)
+    for name, mask_input in mask_dict.items():
+        # Check if mask_input is already an array or a path
+        if isinstance(mask_input, (np.ndarray, list)):
+            # Already loaded mask array
+            mask = np.asarray(mask_input, dtype=np.float64)
+        else:
+            # Path to BED file, load it
+            mask = load_mask(mask_input, chrom, chrom_len, bin_size)
         # Ensure same length
         min_len = min(len(coverage), len(mask))
         if min_len == 0:
