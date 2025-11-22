@@ -2,6 +2,7 @@
 import os
 import numpy as np
 from scipy.stats import pearsonr
+from scipy import special
 
 def load_mask(bed_path, chrom, chrom_len, bin_size):
     """
@@ -37,45 +38,127 @@ def load_mask(bed_path, chrom, chrom_len, bin_size):
     return mask
 
 
-def compute_correlations(coverage, mask_paths, chrom, chrom_len, bin_size):
+def compute_all_features(coverage, mask_paths, chrom, chrom_len, bin_size):
     """
-    Compute correlation features between coverage and each mask.
-    Currently implements only Pearson R and p-value (features 0 and 1 of LIONHEART's 10 feature types).
+    Compute all 10 LIONHEART feature types between coverage and each mask.
     
     LIONHEART's 10 feature types:
     0) Pearson R
     1) p-value
-    2) Normalized dot product (fraction_within)
+    2) Normalized dot product (fraction_within = xy_sum / n)
     3) Cosine Similarity
-    4) x_sum
-    5) y_sum
+    4) x_sum (sum of coverage values)
+    5) y_sum (sum of mask overlap fractions)
     6) x_squared_sum
     7) y_squared_sum
     8) xy_sum
-    9) n (number of bins)
+    9) n (number of included bins)
+    
+    This follows LIONHEART's RunningPearsonR algorithm.
     """
-    corr_stats = {}
+    all_features = {}
+    
     for name, path in mask_paths.items():
         mask = load_mask(path, chrom, chrom_len, bin_size)
         # Ensure same length
         min_len = min(len(coverage), len(mask))
         if min_len == 0:
-            corr_stats[f"pearson_r_{name}"] = 0.0
-            corr_stats[f"p_value_{name}"] = 1.0
+            # Return zeros for all features if no data
+            all_features[f"pearson_r_{name}"] = 0.0
+            all_features[f"p_value_{name}"] = 1.0
+            all_features[f"fraction_within_{name}"] = 0.0
+            all_features[f"cosine_similarity_{name}"] = 0.0
+            all_features[f"x_sum_{name}"] = 0.0
+            all_features[f"y_sum_{name}"] = 0.0
+            all_features[f"x_squared_sum_{name}"] = 0.0
+            all_features[f"y_squared_sum_{name}"] = 0.0
+            all_features[f"xy_sum_{name}"] = 0.0
+            all_features[f"n_{name}"] = 0.0
             continue
-        cov_subset = coverage[:min_len]
-        mask_subset = mask[:min_len].astype(np.float64)
-        try:
-            r, p = pearsonr(cov_subset, mask_subset)
-            corr_stats[f"pearson_r_{name}"] = float(r) if not np.isnan(r) else 0.0
-            corr_stats[f"p_value_{name}"] = float(p) if not np.isnan(p) else 1.0
-            # TODO: Add remaining 8 feature types in future commits
-            # 2) fraction_within = xy_sum / n
-            # 3) cosine_similarity
-            # 4-9) x_sum, y_sum, x_squared_sum, y_squared_sum, xy_sum, n
-        except Exception as e:
-            print(f"Warning: Error computing correlation for {name}: {e}")
-            corr_stats[f"pearson_r_{name}"] = 0.0
-            corr_stats[f"p_value_{name}"] = 1.0
-    return corr_stats
+        
+        x = coverage[:min_len].astype(np.float64)
+        y = mask[:min_len].astype(np.float64)
+        
+        # Remove NaNs (following LIONHEART's RunningPearsonR._check_data)
+        valid_mask = ~(np.isnan(x) | np.isnan(y))
+        x = x[valid_mask]
+        y = y[valid_mask]
+        
+        n = len(x)
+        if n < 2:
+            # Not enough data for correlation
+            all_features[f"pearson_r_{name}"] = 0.0
+            all_features[f"p_value_{name}"] = 1.0
+            all_features[f"fraction_within_{name}"] = 0.0
+            all_features[f"cosine_similarity_{name}"] = 0.0
+            all_features[f"x_sum_{name}"] = float(np.sum(x)) if n > 0 else 0.0
+            all_features[f"y_sum_{name}"] = float(np.sum(y)) if n > 0 else 0.0
+            all_features[f"x_squared_sum_{name}"] = float(np.sum(x**2)) if n > 0 else 0.0
+            all_features[f"y_squared_sum_{name}"] = float(np.sum(y**2)) if n > 0 else 0.0
+            all_features[f"xy_sum_{name}"] = float(np.sum(x * y)) if n > 0 else 0.0
+            all_features[f"n_{name}"] = float(n)
+            continue
+        
+        # Calculate running statistics (following LIONHEART's RunningPearsonR)
+        x_sum = np.sum(x)
+        y_sum = np.sum(y)
+        x_squared_sum = np.sum(x**2)
+        y_squared_sum = np.sum(y**2)
+        xy_sum = np.sum(x * y)
+        
+        # 0) Pearson R
+        numerator = n * xy_sum - x_sum * y_sum
+        denominator = np.sqrt(n * x_squared_sum - x_sum**2) * np.sqrt(n * y_squared_sum - y_sum**2)
+        if denominator == 0:
+            r = 0.0
+            p = 1.0
+        else:
+            r = numerator / denominator
+            r = max(min(r, 1.0), -1.0)  # Clip to [-1, 1]
+            
+            # 1) p-value (following scipy.stats.pearsonr)
+            if abs(r) == 1.0:
+                p = 0.0
+            else:
+                df = n - 2
+                if df <= 0:
+                    p = 1.0
+                else:
+                    # Using beta distribution CDF (same as scipy.stats.pearsonr)
+                    ab = df / 2.0
+                    p = 2 * special.btdtr(ab, ab, 0.5 * (1.0 - abs(r)))
+        
+        # 2) Normalized dot product (fraction_within)
+        fraction_within = xy_sum / n if n > 0 else 0.0
+        
+        # 3) Cosine Similarity
+        x_norm = np.sqrt(x_squared_sum)
+        y_norm = np.sqrt(y_squared_sum)
+        if x_norm > 0 and y_norm > 0:
+            cosine_sim = xy_sum / (x_norm * y_norm)
+            cosine_sim = max(min(cosine_sim, 1.0), -1.0)  # Clip to [-1, 1]
+        else:
+            cosine_sim = 0.0
+        
+        # Store all 10 features
+        all_features[f"pearson_r_{name}"] = float(r)
+        all_features[f"p_value_{name}"] = float(p)
+        all_features[f"fraction_within_{name}"] = float(fraction_within)
+        all_features[f"cosine_similarity_{name}"] = float(cosine_sim)
+        all_features[f"x_sum_{name}"] = float(x_sum)
+        all_features[f"y_sum_{name}"] = float(y_sum)
+        all_features[f"x_squared_sum_{name}"] = float(x_squared_sum)
+        all_features[f"y_squared_sum_{name}"] = float(y_squared_sum)
+        all_features[f"xy_sum_{name}"] = float(xy_sum)
+        all_features[f"n_{name}"] = float(n)
+    
+    return all_features
+
+
+def compute_correlations(coverage, mask_paths, chrom, chrom_len, bin_size):
+    """
+    Compute correlation features (wrapper for backward compatibility).
+    Now computes all 10 feature types.
+    """
+    return compute_all_features(coverage, mask_paths, chrom, chrom_len, bin_size)
 
