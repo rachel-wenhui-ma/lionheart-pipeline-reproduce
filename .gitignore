@@ -14,11 +14,19 @@ build/
 *.npz
 features_sample.csv
 
+# Exception: Allow reference features from LIONHEART
+!lionheart_reference_features/*.npy
+
 # Data files (keep masks, exclude large files)
-data/chr21.fa
-data/chr21.fa.fai
+data/chr*.fa
+data/chr*.fa.fai
 *.bam
 *.bai
+
+# LIONHEART resource files (large, ~1GB, downloaded from Zenodo)
+data/lionheart_resources/
+# Specifically ignore parquet files (even if directory is tracked)
+*.parquet
 
 # IDE
 .vscode/
