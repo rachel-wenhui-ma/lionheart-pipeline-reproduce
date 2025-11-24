@@ -38,4 +38,44 @@ data/lionheart_resources/
 .DS_Store
 Thumbs.db
 
+# Archive directory (development files)
+archive/
+
+# Log files
+*.log
+
+# Temporary and development scripts
+*_temp*.py
+*_debug*.py
+*_test*.py
+*_check*.py
+*_analyze*.py
+*_compare*.py
+*_verify*.py
+*_trace*.py
+*_extract*.py
+archive_*.py
+cleanup_*.py
+
+# Development documentation (keep only core docs)
+*_SUMMARY.md
+*_ANALYSIS.md
+*_STATUS.md
+*_VERIFICATION.md
+*_FINDINGS.md
+*_INVESTIGATION.md
+FILE_*.md
+SRC_*.md
+PROJECT_*.md
+IMPLEMENTATION_*.md
+STEP*.md
+CODON_*.md
+PLAN_*.md
+GIT_*.md
+ALL_*.md
+
+# Keep only core documentation
+!README.md
+!DATA_SETUP.md
+!RESOURCES_SETUP.md
 

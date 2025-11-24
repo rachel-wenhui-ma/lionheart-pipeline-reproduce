@@ -114,11 +114,24 @@ def compute_all_features(coverage, mask_dict, chrom, chrom_len, bin_size):
             continue
         
         # Calculate running statistics (following LIONHEART's RunningPearsonR)
-        x_sum = np.sum(x)
-        y_sum = np.sum(y)
-        x_squared_sum = np.sum(x**2)
-        y_squared_sum = np.sum(y**2)
-        xy_sum = np.sum(x * y)
+        # Use optimized Numba version if available
+        try:
+            from .optimized import compute_sums_numba, NUMBA_AVAILABLE
+            if NUMBA_AVAILABLE:
+                n_valid, x_sum, y_sum, x_squared_sum, y_squared_sum, xy_sum = compute_sums_numba(x, y)
+            else:
+                x_sum = np.sum(x)
+                y_sum = np.sum(y)
+                x_squared_sum = np.sum(x**2)
+                y_squared_sum = np.sum(y**2)
+                xy_sum = np.sum(x * y)
+        except ImportError:
+            # Fallback to NumPy
+            x_sum = np.sum(x)
+            y_sum = np.sum(y)
+            x_squared_sum = np.sum(x**2)
+            y_squared_sum = np.sum(y**2)
+            xy_sum = np.sum(x * y)
         
         # 0) Pearson R
         numerator = n * xy_sum - x_sum * y_sum

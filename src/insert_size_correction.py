@@ -209,8 +209,8 @@ def correct_bias(
     # Avoid zero-division
     corrections[corrections == 0] = 1.0
     
-    # Apply correction
-    corrected = coverages.astype(np.float64) * corrections
+    # Apply correction: divide by correction factors (LIONHEART uses division)
+    corrected = coverages.astype(np.float64) / corrections
     
     # Clip negative values
     corrected[corrected < 0] = 0.0
