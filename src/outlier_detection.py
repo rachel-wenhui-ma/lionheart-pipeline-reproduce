@@ -162,3 +162,4 @@ def clip_outliers(coverage: np.ndarray, clipping_val: int) -> np.ndarray:
     clipped[clipped > clipping_val] = clipping_val
     return clipped
 
+

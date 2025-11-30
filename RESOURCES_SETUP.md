@@ -70,3 +70,4 @@ python test_new_resources_path.py
 
 应该看到成功加载GC内容的输出。
 
+

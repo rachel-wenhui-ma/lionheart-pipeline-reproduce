@@ -116,10 +116,7 @@ def calculate_gc_correction_factors(coverage, gc_content, num_bins=20):
     # Normalize factors to center around 1.0 (matching LIONHEART's div_by_mean=True)
     correction_factors = bin_means.copy()
     if np.nanmean(correction_factors) > 0:
-        correction_factors /= np.nanmean(correction_factors)
-    
-    # Set NaN factors to 1.0 (no correction)
-    correction_factors[np.isnan(correction_factors)] = 1.0
+        correction_factors /= np.nanmean(correction_factors[np.isfinite(correction_factors)])
     
     return bin_edges_result, correction_factors
 
@@ -146,14 +143,16 @@ def correct_gc_bias(coverage, gc_content, bin_edges, correction_factors):
     # Get correction factor for each bin
     corrections = correction_factors[bin_indices]
     
-    # Avoid zero-division
-    corrections[corrections == 0] = 1.0
+    # Avoid zero-division by marking zeros as NaN
+    corrections[corrections == 0] = np.nan
     
     # Apply correction: divide coverage by correction factor
-    corrected_coverage = coverage.astype(np.float64) / corrections
+    with np.errstate(divide="ignore", invalid="ignore"):
+        corrected_coverage = coverage.astype(np.float64) / corrections
     
-    # Clip negative values to 0
-    corrected_coverage[corrected_coverage < 0] = 0.0
+    # Clip negative finite values to 0
+    neg_mask = np.isfinite(corrected_coverage) & (corrected_coverage < 0)
+    corrected_coverage[neg_mask] = 0.0
     
     return corrected_coverage
 
@@ -200,7 +199,7 @@ def normalize_megabins_simple(
     num_stridings = int(np.ceil(mbin_size / stride))
     
     # Calculate megabin averages for each stride
-    mbin_averages = np.zeros((n_bins, num_stridings))
+    mbin_averages = np.full((n_bins, num_stridings), np.nan)
     
     for striding in range(num_stridings):
         # Offset for this stride (LIONHEART starts before min_start for smoothing)

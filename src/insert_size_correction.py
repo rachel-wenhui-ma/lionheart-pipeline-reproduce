@@ -61,9 +61,9 @@ def calculate_insert_size_correction_factors(
     
     # Normalize observed distribution
     observed_dist = bin_means.copy()
-    observed_dist[np.isnan(observed_dist)] = 0
-    if np.nanmean(observed_dist) > 0:
-        observed_dist = observed_dist / np.nanmean(observed_dist)
+    valid_obs = np.isfinite(observed_dist)
+    if np.any(valid_obs) and np.nanmean(observed_dist[valid_obs]) > 0:
+        observed_dist = observed_dist / np.nanmean(observed_dist[valid_obs])
     
     # 1. Noise correction: normalize by observed vs expected distribution
     # Simplified: use observed distribution as reference
@@ -135,9 +135,9 @@ def calculate_insert_size_correction_factors(
     )
     
     corrected_dist = bin_means_corrected.copy()
-    corrected_dist[np.isnan(corrected_dist)] = 0
-    if np.nanmean(corrected_dist) > 0:
-        corrected_dist = corrected_dist / np.nanmean(corrected_dist)
+    valid_corr = np.isfinite(corrected_dist)
+    if np.any(valid_corr) and np.nanmean(corrected_dist[valid_corr]) > 0:
+        corrected_dist = corrected_dist / np.nanmean(corrected_dist[valid_corr])
     
     # Target distribution: centered at final_mean_insert_size
     # Simplified: create target distribution with peak at final_mean_insert_size
@@ -203,17 +203,16 @@ def correct_bias(
     # Get correction factors
     corrections = correct_factors[bin_indices]
     
-    # Handle NaNs: set to 1.0 (no correction)
-    corrections = np.where(np.isnan(corrections), 1.0, corrections)
-    
     # Avoid zero-division
-    corrections[corrections == 0] = 1.0
+    corrections[corrections == 0] = np.nan
     
     # Apply correction: divide by correction factors (LIONHEART uses division)
-    corrected = coverages.astype(np.float64) / corrections
+    with np.errstate(divide="ignore", invalid="ignore"):
+        corrected = coverages.astype(np.float64) / corrections
     
-    # Clip negative values
-    corrected[corrected < 0] = 0.0
+    # Clip negative finite values
+    neg_mask = np.isfinite(corrected) & (corrected < 0)
+    corrected[neg_mask] = 0.0
     
     return corrected
 

@@ -13,9 +13,15 @@ build/
 *.npy
 *.npz
 features_sample.csv
+debug_dumps/
 
 # Exception: Allow reference features from LIONHEART
 !lionheart_reference_features/*.npy
+!lionheart_reference_features/**/*.npy
+
+# Submission artifacts (frozen outputs)
+!artifacts/**/*.csv
+!artifacts/**/*.npy
 
 # Data files (keep masks, exclude large files)
 data/chr*.fa

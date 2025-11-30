@@ -1,0 +1,7 @@
+Model,Task,Threshold Name,ROC Curve,Prediction,P(Cancer),Threshold,Exp. Specificity,Exp. Sensitivity,Exp. Accuracy for Class at Probability,ID
+detect_cancer__002__24_06_25,Cancer Detection,Max. Youden's J,Average (training data),Cancer,0.9799783692354456,0.48876521016339985,0.886,0.7896285649192948,0.9641968972574225,reproduce_sample
+detect_cancer__002__24_06_25,Cancer Detection,Sensitivity ~0.95,Average (training data),Cancer,0.9799783692354456,0.20769384327809842,0.44432024401667625,0.95,0.9641968972574225,reproduce_sample
+detect_cancer__002__24_06_25,Cancer Detection,Sensitivity ~0.99,Average (training data),Cancer,0.9799783692354456,0.08167144289672389,0.1203330707128838,0.99,0.9641968972574225,reproduce_sample
+detect_cancer__002__24_06_25,Cancer Detection,Specificity ~0.95,Average (training data),Cancer,0.9799783692354456,0.6281486162688202,0.95,0.653101681846019,0.9641968972574225,reproduce_sample
+detect_cancer__002__24_06_25,Cancer Detection,Specificity ~0.99,Average (training data),Cancer,0.9799783692354456,0.8050966855965882,0.99,0.49103134870529175,0.9641968972574225,reproduce_sample
+detect_cancer__002__24_06_25,Cancer Detection,Threshold ~0.5,Average (training data),Cancer,0.9799783692354456,0.5,0.11123297874125439,0.7759320000494058,0.9641968972574225,reproduce_sample
