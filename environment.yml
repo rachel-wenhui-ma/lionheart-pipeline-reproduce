@@ -1,0 +1,15 @@
+name: lionheart
+channels:
+  - main
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python=3.9
+  - joblib=1.4.2
+  - numpy=1.26.4
+  - pandas=1.5.3
+  - conda-forge::pigz
+  - pip:
+    - scikit-learn==1.0.2
+    - generalize==0.3.0
