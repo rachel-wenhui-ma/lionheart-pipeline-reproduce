@@ -1,0 +1,150 @@
+Sample ID,Cancer Status,Cancer Type,Subject ID,Stage,Tumor Fraction (Fragle),Tumor Fraction (ichorCNA)
+Zhu_0,Control,Healthy,Zhu_0,,0.011870138,0.0
+Zhu_1,Control,Healthy,Zhu_1,,0.002571624,0.0
+Zhu_2,Cancer,Gastric Cancer,Zhu_2,IV,0.052119316,0.0
+Zhu_3,Cancer,Colorectal Cancer,Zhu_3,IV,0.402046928,0.3674
+Zhu_4,Control,Healthy,Zhu_4,,0.001432609,0.0
+Zhu_5,Cancer,Breast Cancer,Zhu_5,IV,0.257230186,0.1964
+Zhu_6,Cancer,Breast Cancer,Zhu_6,IV,0.436114697,0.4483
+Zhu_7,Cancer,Breast Cancer,Zhu_7,IV,0.40056712,0.4401
+Zhu_8,Control,Healthy,Zhu_8,,0.001432609,0.0
+Zhu_9,Control,Healthy,Zhu_9,,0.002657279,0.0
+Zhu_10,Cancer,Colorectal Cancer,Zhu_10,III,0.113589389,0.08128
+Zhu_11,Control,Healthy,Zhu_11,,0.001432609,0.0
+Zhu_12,Cancer,Breast Cancer,Zhu_12,,0.24646879,0.2013
+Zhu_13,Control,Healthy,Zhu_13,,0.001432609,0.0
+Zhu_14,Cancer,Colorectal Cancer,Zhu_14,IV,0.763081303,0.4224
+Zhu_15,Cancer,Colorectal Cancer,Zhu_15,IV,0.218082712,0.1328
+Zhu_16,Control,Healthy,Zhu_16,,0.019245844,0.0
+Zhu_17,Control,Healthy,Zhu_17,,0.001432609,0.0
+Zhu_18,Cancer,Colorectal Cancer,Zhu_18,IV,0.057611843,0.0
+Zhu_19,Cancer,Gastric Cancer,Zhu_19,III,0.007609602,0.0
+Zhu_20,Control,Healthy,Zhu_20,,0.001432609,0.0
+Zhu_21,Control,Healthy,Zhu_21,,0.00470541,0.0
+Zhu_22,Cancer,Colorectal Cancer,Zhu_22,IV,0.112684312,0.0
+Zhu_23,Control,Healthy,Zhu_23,,0.002526764,0.0
+Zhu_24,Control,Healthy,Zhu_24,,0.003104869,0.0
+Zhu_25,Cancer,Colorectal Cancer,Zhu_25,IV,0.636453209,0.3897
+Zhu_26,Control,Healthy,Zhu_26,,0.013254564,0.0
+Zhu_27,Cancer,Breast Cancer,Zhu_27,II,0.274374331,0.7754
+Zhu_28,Cancer,Colorectal Cancer,Zhu_28,IV,0.128870536,0.08431
+Zhu_29,Cancer,Breast Cancer,Zhu_29,IV,0.507155668,0.5023
+Zhu_30,Cancer,Gastric Cancer,Zhu_30,IV,0.06156387,0.0
+Zhu_31,Cancer,Colorectal Cancer,Zhu_31,III,0.006680034,0.0
+Zhu_32,Cancer,Colorectal Cancer,Zhu_32,III,0.479408978,0.3368
+Zhu_33,Control,Healthy,Zhu_33,,0.018422414,0.0
+Zhu_34,Control,Healthy,Zhu_34,,0.007388394,0.0
+Zhu_35,Cancer,Breast Cancer,Zhu_35,IV,0.286814397,0.09798
+Zhu_36,Cancer,Breast Cancer,Zhu_36,IV,0.086058588,0.06594
+Zhu_37,Cancer,Gastric Cancer,Zhu_37,IV,0.155660699,0.0
+Zhu_38,Cancer,Colorectal Cancer,Zhu_38,II,0.001432609,0.0
+Zhu_39,Cancer,Breast Cancer,Zhu_39,IV,0.056257316,0.05727
+Zhu_40,Cancer,Gastric Cancer,Zhu_40,IV,0.1124923,0.09498
+Zhu_41,Cancer,Colorectal Cancer,Zhu_41,IV,0.060476658,0.0338
+Zhu_42,Control,Healthy,Zhu_42,,0.005918011,0.0
+Zhu_43,Cancer,Colorectal Cancer,Zhu_43,II,0.030495413,0.06236
+Zhu_44,Cancer,Gastric Cancer,Zhu_44,IV,0.050446374,0.0
+Zhu_45,Control,Healthy,Zhu_45,,0.007473934,0.0
+Zhu_46,Cancer,Gastric Cancer,Zhu_46,IV,0.080310005,0.0
+Zhu_47,Cancer,Gastric Cancer,Zhu_47,IV,0.155117687,0.0
+Zhu_48,Control,Healthy,Zhu_48,,0.003874358,0.0
+Zhu_49,Cancer,Gastric Cancer,Zhu_49,IV,0.087561702,0.0
+Zhu_50,Cancer,Breast Cancer,Zhu_50,IV,0.055446158,0.04678
+Zhu_51,Cancer,Colorectal Cancer,Zhu_51,IV,0.396793798,0.2669
+Zhu_52,Cancer,Gastric Cancer,Zhu_52,IV,0.163151749,0.08961
+Zhu_53,Cancer,Colorectal Cancer,Zhu_53,IV,0.150049152,0.1772
+Zhu_54,Cancer,Gastric Cancer,Zhu_54,IV,0.07886164,0.0
+Zhu_55,Cancer,Breast Cancer,Zhu_55,IV,0.097822323,0.08541
+Zhu_56,Control,Healthy,Zhu_56,,0.009302083,0.0
+Zhu_57,Cancer,Colorectal Cancer,Zhu_57,IV,0.672043522,0.482
+Zhu_58,Cancer,Colorectal Cancer,Zhu_58,IV,0.229384372,0.1209
+Zhu_59,Control,Healthy,Zhu_59,,0.001432609,0.0
+Zhu_60,Cancer,Breast Cancer,Zhu_60,,0.372768517,0.1717
+Zhu_61,Cancer,Colorectal Cancer,Zhu_61,II,0.091243171,0.0
+Zhu_62,Cancer,Colorectal Cancer,Zhu_62,III,0.01378965,0.0
+Zhu_63,Cancer,Breast Cancer,Zhu_63,IV,0.304146104,0.2002
+Zhu_64,Control,Healthy,Zhu_64,,0.001432609,0.0
+Zhu_65,Control,Healthy,Zhu_65,,0.002637614,0.0
+Zhu_66,Cancer,Gastric Cancer,Zhu_66,IV,0.013228126,0.1282
+Zhu_67,Cancer,Colorectal Cancer,Zhu_67,III,0.281376883,0.247
+Zhu_68,Control,Healthy,Zhu_68,,0.003579039,0.0
+Zhu_69,Control,Healthy,Zhu_69,,0.001432609,0.0
+Zhu_70,Cancer,Gastric Cancer,Zhu_70,IV,0.04220073,0.09162
+Zhu_71,Cancer,Breast Cancer,Zhu_71,,0.450299532,0.3873
+Zhu_72,Cancer,Breast Cancer,Zhu_72,IV,0.153902369,0.1359
+Zhu_73,Cancer,Colorectal Cancer,Zhu_73,IV,0.070640292,0.0
+Zhu_74,Control,Healthy,Zhu_74,,0.001432609,0.0
+Zhu_75,Control,Healthy,Zhu_75,,0.001626942,0.0
+Zhu_76,Control,Healthy,Zhu_76,,0.001432609,0.0
+Zhu_77,Cancer,Gastric Cancer,Zhu_77,IV,0.173703201,0.0
+Zhu_78,Control,Healthy,Zhu_78,,0.001432609,0.0
+Zhu_79,Control,Healthy,Zhu_79,,0.006088253,0.0
+Zhu_80,Cancer,Colorectal Cancer,Zhu_80,III,0.321201145,0.1554
+Zhu_81,Cancer,Colorectal Cancer,Zhu_81,IV,0.099424872,0.1036
+Zhu_82,Cancer,Colorectal Cancer,Zhu_82,II,0.036004139,0.0
+Zhu_83,Cancer,Breast Cancer,Zhu_83,,0.342956974,0.3228
+Zhu_84,Cancer,Breast Cancer,Zhu_84,IV,0.001432609,0.0
+Zhu_85,Control,Healthy,Zhu_85,,0.053676158,0.0
+Zhu_86,Control,Healthy,Zhu_86,,0.006515447,0.0
+Zhu_87,Control,Healthy,Zhu_87,,0.002025921,0.0
+Zhu_88,Cancer,Colorectal Cancer,Zhu_88,IV,0.720706009,0.3079
+Zhu_89,Cancer,Colorectal Cancer,Zhu_89,III,0.716923836,0.5816
+Zhu_90,Cancer,Colorectal Cancer,Zhu_90,IV,0.439890709,0.2432
+Zhu_91,Cancer,Colorectal Cancer,Zhu_91,IV,0.122067186,0.1026
+Zhu_92,Cancer,Breast Cancer,Zhu_92,IV,0.221099057,0.1566
+Zhu_93,Control,Healthy,Zhu_93,,0.001432609,0.0
+Zhu_94,Cancer,Colorectal Cancer,Zhu_94,IV,0.370604996,0.3081
+Zhu_95,Control,Healthy,Zhu_95,,0.003029812,0.0
+Zhu_96,Cancer,Gastric Cancer,Zhu_96,IV,0.0466091,0.0
+Zhu_97,Cancer,Gastric Cancer,Zhu_97,IV,0.120360363,0.0
+Zhu_98,Cancer,Gastric Cancer,Zhu_98,IV,0.046080071,0.0
+Zhu_99,Control,Healthy,Zhu_99,,0.004040807,0.0
+Zhu_100,Cancer,Gastric Cancer,Zhu_100,IV,0.305593682,0.0766
+Zhu_101,Control,Healthy,Zhu_101,,0.114116108,0.0
+Zhu_102,Control,Healthy,Zhu_102,,0.001432609,0.0
+Zhu_103,Cancer,Colorectal Cancer,Zhu_103,IV,0.475920801,0.5096
+Zhu_104,Cancer,Gastric Cancer,Zhu_104,IV,0.044859211,0.0
+Zhu_105,Cancer,Gastric Cancer,Zhu_105,IV,0.013140239,0.0
+Zhu_106,Control,Healthy,Zhu_106,,0.001432609,0.0
+Zhu_107,Control,Healthy,Zhu_107,,0.001432609,0.0
+Zhu_108,Cancer,Gastric Cancer,Zhu_108,IV,0.082408023,0.04146
+Zhu_109,Cancer,Colorectal Cancer,Zhu_109,III,0.161718397,0.05223
+Zhu_110,Cancer,Gastric Cancer,Zhu_110,IV,0.002511825,0.0
+Zhu_111,Cancer,Breast Cancer,Zhu_111,,0.16835064,0.2122
+Zhu_112,Cancer,Breast Cancer,Zhu_112,,0.40981526,0.3756
+Zhu_113,Cancer,Breast Cancer,Zhu_113,,0.50143523,0.4718
+Zhu_114,Control,Healthy,Zhu_114,,0.001812208,0.0
+Zhu_115,Control,Healthy,Zhu_115,,0.009091474,0.0
+Zhu_116,Cancer,Colorectal Cancer,Zhu_116,IV,0.382851696,0.09909
+Zhu_117,Cancer,Colorectal Cancer,Zhu_117,IV,0.212277451,0.1859
+Zhu_118,Cancer,Breast Cancer,Zhu_118,IV,0.546700752,0.4044
+Zhu_119,Control,Healthy,Zhu_119,,0.010162164,0.0
+Zhu_120,Cancer,Breast Cancer,Zhu_120,IV,0.167281177,0.1491
+Zhu_121,Cancer,Gastric Cancer,Zhu_121,IV,0.072608339,0.0
+Zhu_122,Cancer,Colorectal Cancer,Zhu_122,III,0.015691791,0.0
+Zhu_123,Cancer,Colorectal Cancer,Zhu_123,III,0.122825305,0.08811
+Zhu_124,Control,Healthy,Zhu_124,,0.001432609,0.0
+Zhu_125,Control,Healthy,Zhu_125,,0.001432609,0.0
+Zhu_126,Cancer,Breast Cancer,Zhu_126,IV,0.347501198,0.2572
+Zhu_127,Control,Healthy,Zhu_127,,0.001432609,0.0
+Zhu_128,Control,Healthy,Zhu_128,,0.010756377,0.0
+Zhu_129,Cancer,Breast Cancer,Zhu_129,IV,0.51064926,0.5665
+Zhu_130,Cancer,Colorectal Cancer,Zhu_130,III,0.094109446,0.09331
+Zhu_131,Control,Healthy,Zhu_131,,0.005176939,0.08758
+Zhu_132,Cancer,Gastric Cancer,Zhu_132,IV,0.131284101,0.0
+Zhu_133,Control,Healthy,Zhu_133,,0.020771544,0.0
+Zhu_134,Cancer,Breast Cancer,Zhu_134,,0.244791319,0.2041
+Zhu_135,Control,Healthy,Zhu_135,,0.013341177,0.0
+Zhu_136,Control,Healthy,Zhu_136,,0.001432609,0.0
+Zhu_137,Cancer,Gastric Cancer,Zhu_137,IV,0.006062787,0.0
+Zhu_138,Cancer,Colorectal Cancer,Zhu_138,IV,0.085200235,0.0
+Zhu_139,Cancer,Breast Cancer,Zhu_139,,0.043034514,0.0
+Zhu_140,Cancer,Breast Cancer,Zhu_140,IV,0.100214144,0.07283
+Zhu_141,Cancer,Colorectal Cancer,Zhu_141,IV,0.06598737,0.0
+Zhu_142,Cancer,Colorectal Cancer,Zhu_142,IV,0.572551201,0.148
+Zhu_143,Cancer,Colorectal Cancer,Zhu_143,II,0.051586032,0.0
+Zhu_144,Control,Healthy,Zhu_144,,0.001432609,0.0
+Zhu_145,Cancer,Breast Cancer,Zhu_145,IV,0.117217123,0.08629
+Zhu_146,Control,Healthy,Zhu_146,,0.001432609,0.0
+Zhu_147,Cancer,Breast Cancer,Zhu_147,IV,0.007419582,0.0
+Zhu_148,Cancer,Breast Cancer,Zhu_148,,0.341090174,0.2758
