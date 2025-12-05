@@ -50,11 +50,11 @@ In terms of computational efficiency, the feature-extraction pipeline is both ti
 
 ### 5.2 Model Result Comparison
 
-Our final model selected only 43 active features, as opposed to 78 active features in the reference model. Though there are 45 percent fewer features chosen, our model achieved a comparable Area Under the Curve (AUC) with the paper (89.76 vs. 91.70) for validation set. On test set, we also achieved comparable probability of predicting cancer (90.12 vs. 94.39), suggeting that our simple model is more efficient. We successfully identified the main biological signals.
+Our final model selected only 43 active features, as opposed to 78 active features in the reference model. Though there are 42 percent fewer features chosen, our model achieved a comparable Area Under the Curve (AUC) with the paper (90.15 vs. 91.70) for validation set. On test set, we also achieved comparable probability of predicting cancer (92.34 vs. 94.39), suggeting that our simple model is more efficient. We successfully identified the main biological signals.
 
 However, fewer features also come at a cost. Our model misses the fine-grained information needed to classify the “not-too-obvious” cases. This is clearly evident in cross-dataset validation for Nordentoft and GECOCA datasets, which are more noisy and contain low-fraction data. While the reference model maintains performance (AUC: 0.86), our performance dropped significantly to just above 0.6 for both datasets. 
 
-This could be attributed to the fact that the reproduced model selected a different hyperparameters pair \- 0.04 for regularization term and 0.987 for PCA variance, in comparison to the paper’s 0.2 and 0.988 hyperparameters, respectively. The stricter penalty causes the model to be more conservative, skipping out on subtle clues.
+This could be attributed to the fact that the reproduced model selected a different hyperparameters pair \- 0.05 for regularization term and 0.987 for PCA variance, in comparison to the paper’s 0.2 and 0.988 hyperparameters, respectively. The stricter penalty causes the model to be more conservative, skipping out on subtle clues.
 
 To sum up, our reproduced model, though providing comparable final results to the paper, lacks the ability to generalize to new datasets, especially those with hidden and noisy signals. 
 
