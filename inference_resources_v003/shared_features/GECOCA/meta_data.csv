@@ -1,0 +1,169 @@
+Sample ID,Cancer Status,Cancer Type,Subject ID
+GECOCA_0,Cancer,Colorectal Cancer,GECOCA_0
+GECOCA_1,Control,Healthy,GECOCA_1
+GECOCA_2,Control,Healthy,GECOCA_2
+GECOCA_3,Cancer,Colorectal Cancer,GECOCA_3
+GECOCA_4,Cancer,Colorectal Cancer,GECOCA_4
+GECOCA_5,Cancer,Colorectal Cancer,GECOCA_5
+GECOCA_6,Cancer,Colorectal Cancer,GECOCA_6
+GECOCA_7,Cancer,Colorectal Cancer,GECOCA_7
+GECOCA_8,Cancer,Colorectal Cancer,GECOCA_8
+GECOCA_9,Control,Healthy,GECOCA_9
+GECOCA_10,Cancer,Colorectal Cancer,GECOCA_10
+GECOCA_11,Control,Healthy,GECOCA_11
+GECOCA_12,Cancer,Colorectal Cancer,GECOCA_12
+GECOCA_13,Cancer,Colorectal Cancer,GECOCA_13
+GECOCA_14,Cancer,Colorectal Cancer,GECOCA_14
+GECOCA_15,Cancer,Colorectal Cancer,GECOCA_15
+GECOCA_16,Control,Healthy,GECOCA_16
+GECOCA_17,Cancer,Colorectal Cancer,GECOCA_17
+GECOCA_18,Cancer,Colorectal Cancer,GECOCA_18
+GECOCA_19,Cancer,Colorectal Cancer,GECOCA_19
+GECOCA_20,Cancer,Colorectal Cancer,GECOCA_20
+GECOCA_21,Cancer,Colorectal Cancer,GECOCA_21
+GECOCA_22,Cancer,Colorectal Cancer,GECOCA_22
+GECOCA_23,Cancer,Colorectal Cancer,GECOCA_23
+GECOCA_24,Cancer,Colorectal Cancer,GECOCA_24
+GECOCA_25,Control,Healthy,GECOCA_25
+GECOCA_26,Cancer,Colorectal Cancer,GECOCA_26
+GECOCA_27,Cancer,Colorectal Cancer,GECOCA_27
+GECOCA_28,Control,Healthy,GECOCA_28
+GECOCA_29,Cancer,Colorectal Cancer,GECOCA_29
+GECOCA_30,Cancer,Colorectal Cancer,GECOCA_30
+GECOCA_31,Control,Healthy,GECOCA_31
+GECOCA_32,Control,Healthy,GECOCA_32
+GECOCA_33,Control,Healthy,GECOCA_33
+GECOCA_34,Cancer,Colorectal Cancer,GECOCA_34
+GECOCA_35,Cancer,Colorectal Cancer,GECOCA_35
+GECOCA_36,Cancer,Colorectal Cancer,GECOCA_36
+GECOCA_37,Cancer,Colorectal Cancer,GECOCA_37
+GECOCA_38,Cancer,Colorectal Cancer,GECOCA_38
+GECOCA_39,Cancer,Colorectal Cancer,GECOCA_39
+GECOCA_40,Cancer,Colorectal Cancer,GECOCA_40
+GECOCA_41,Cancer,Colorectal Cancer,GECOCA_41
+GECOCA_42,Cancer,Colorectal Cancer,GECOCA_42
+GECOCA_43,Cancer,Colorectal Cancer,GECOCA_43
+GECOCA_44,Cancer,Colorectal Cancer,GECOCA_44
+GECOCA_45,Control,Healthy,GECOCA_45
+GECOCA_46,Cancer,Colorectal Cancer,GECOCA_46
+GECOCA_47,Cancer,Colorectal Cancer,GECOCA_47
+GECOCA_48,Control,Healthy,GECOCA_48
+GECOCA_49,Control,Healthy,GECOCA_49
+GECOCA_50,Cancer,Colorectal Cancer,GECOCA_50
+GECOCA_51,Control,Healthy,GECOCA_51
+GECOCA_52,Control,Healthy,GECOCA_52
+GECOCA_53,Cancer,Colorectal Cancer,GECOCA_53
+GECOCA_54,Cancer,Colorectal Cancer,GECOCA_54
+GECOCA_55,Cancer,Colorectal Cancer,GECOCA_55
+GECOCA_56,Cancer,Colorectal Cancer,GECOCA_56
+GECOCA_57,Cancer,Colorectal Cancer,GECOCA_57
+GECOCA_58,Cancer,Colorectal Cancer,GECOCA_58
+GECOCA_59,Cancer,Colorectal Cancer,GECOCA_59
+GECOCA_60,Control,Healthy,GECOCA_60
+GECOCA_61,Cancer,Colorectal Cancer,GECOCA_61
+GECOCA_62,Cancer,Colorectal Cancer,GECOCA_62
+GECOCA_63,Cancer,Colorectal Cancer,GECOCA_63
+GECOCA_64,Cancer,Colorectal Cancer,GECOCA_64
+GECOCA_65,Control,Healthy,GECOCA_65
+GECOCA_66,Cancer,Colorectal Cancer,GECOCA_66
+GECOCA_67,Control,Healthy,GECOCA_67
+GECOCA_68,Cancer,Colorectal Cancer,GECOCA_68
+GECOCA_69,Cancer,Colorectal Cancer,GECOCA_69
+GECOCA_70,Cancer,Colorectal Cancer,GECOCA_70
+GECOCA_71,Cancer,Colorectal Cancer,GECOCA_71
+GECOCA_72,Cancer,Colorectal Cancer,GECOCA_72
+GECOCA_73,Cancer,Colorectal Cancer,GECOCA_73
+GECOCA_74,Cancer,Colorectal Cancer,GECOCA_74
+GECOCA_75,Cancer,Colorectal Cancer,GECOCA_75
+GECOCA_76,Cancer,Colorectal Cancer,GECOCA_76
+GECOCA_77,Cancer,Colorectal Cancer,GECOCA_77
+GECOCA_78,Cancer,Colorectal Cancer,GECOCA_78
+GECOCA_79,Cancer,Colorectal Cancer,GECOCA_79
+GECOCA_80,Cancer,Colorectal Cancer,GECOCA_80
+GECOCA_81,Cancer,Colorectal Cancer,GECOCA_81
+GECOCA_82,Cancer,Colorectal Cancer,GECOCA_82
+GECOCA_83,Cancer,Colorectal Cancer,GECOCA_83
+GECOCA_84,Cancer,Colorectal Cancer,GECOCA_84
+GECOCA_85,Control,Healthy,GECOCA_85
+GECOCA_86,Cancer,Colorectal Cancer,GECOCA_86
+GECOCA_87,Cancer,Colorectal Cancer,GECOCA_87
+GECOCA_88,Cancer,Colorectal Cancer,GECOCA_88
+GECOCA_89,Cancer,Colorectal Cancer,GECOCA_89
+GECOCA_90,Cancer,Colorectal Cancer,GECOCA_90
+GECOCA_91,Cancer,Colorectal Cancer,GECOCA_91
+GECOCA_92,Cancer,Colorectal Cancer,GECOCA_92
+GECOCA_93,Cancer,Colorectal Cancer,GECOCA_93
+GECOCA_94,Cancer,Colorectal Cancer,GECOCA_94
+GECOCA_95,Control,Healthy,GECOCA_95
+GECOCA_96,Cancer,Colorectal Cancer,GECOCA_96
+GECOCA_97,Control,Healthy,GECOCA_97
+GECOCA_98,Cancer,Colorectal Cancer,GECOCA_98
+GECOCA_99,Cancer,Colorectal Cancer,GECOCA_99
+GECOCA_100,Cancer,Colorectal Cancer,GECOCA_100
+GECOCA_101,Cancer,Colorectal Cancer,GECOCA_101
+GECOCA_102,Cancer,Colorectal Cancer,GECOCA_102
+GECOCA_103,Cancer,Colorectal Cancer,GECOCA_103
+GECOCA_104,Cancer,Colorectal Cancer,GECOCA_104
+GECOCA_105,Cancer,Colorectal Cancer,GECOCA_105
+GECOCA_106,Cancer,Colorectal Cancer,GECOCA_106
+GECOCA_107,Cancer,Colorectal Cancer,GECOCA_107
+GECOCA_108,Cancer,Colorectal Cancer,GECOCA_108
+GECOCA_109,Control,Healthy,GECOCA_109
+GECOCA_110,Cancer,Colorectal Cancer,GECOCA_110
+GECOCA_111,Control,Healthy,GECOCA_111
+GECOCA_112,Control,Healthy,GECOCA_112
+GECOCA_113,Cancer,Colorectal Cancer,GECOCA_113
+GECOCA_114,Cancer,Colorectal Cancer,GECOCA_114
+GECOCA_115,Cancer,Colorectal Cancer,GECOCA_115
+GECOCA_116,Control,Healthy,GECOCA_116
+GECOCA_117,Cancer,Colorectal Cancer,GECOCA_117
+GECOCA_118,Cancer,Colorectal Cancer,GECOCA_118
+GECOCA_119,Cancer,Colorectal Cancer,GECOCA_119
+GECOCA_120,Cancer,Colorectal Cancer,GECOCA_120
+GECOCA_121,Control,Healthy,GECOCA_121
+GECOCA_122,Control,Healthy,GECOCA_122
+GECOCA_123,Control,Healthy,GECOCA_123
+GECOCA_124,Control,Healthy,GECOCA_124
+GECOCA_125,Cancer,Colorectal Cancer,GECOCA_125
+GECOCA_126,Cancer,Colorectal Cancer,GECOCA_126
+GECOCA_127,Cancer,Colorectal Cancer,GECOCA_127
+GECOCA_128,Cancer,Colorectal Cancer,GECOCA_128
+GECOCA_129,Cancer,Colorectal Cancer,GECOCA_129
+GECOCA_130,Cancer,Colorectal Cancer,GECOCA_130
+GECOCA_131,Cancer,Colorectal Cancer,GECOCA_131
+GECOCA_132,Cancer,Colorectal Cancer,GECOCA_132
+GECOCA_133,Cancer,Colorectal Cancer,GECOCA_133
+GECOCA_134,Cancer,Colorectal Cancer,GECOCA_134
+GECOCA_135,Cancer,Colorectal Cancer,GECOCA_135
+GECOCA_136,Cancer,Colorectal Cancer,GECOCA_136
+GECOCA_137,Cancer,Colorectal Cancer,GECOCA_137
+GECOCA_138,Cancer,Colorectal Cancer,GECOCA_138
+GECOCA_139,Cancer,Colorectal Cancer,GECOCA_139
+GECOCA_140,Cancer,Colorectal Cancer,GECOCA_140
+GECOCA_141,Cancer,Colorectal Cancer,GECOCA_141
+GECOCA_142,Control,Healthy,GECOCA_142
+GECOCA_143,Cancer,Colorectal Cancer,GECOCA_143
+GECOCA_144,Cancer,Colorectal Cancer,GECOCA_144
+GECOCA_145,Control,Healthy,GECOCA_145
+GECOCA_146,Cancer,Colorectal Cancer,GECOCA_146
+GECOCA_147,Cancer,Colorectal Cancer,GECOCA_147
+GECOCA_148,Cancer,Colorectal Cancer,GECOCA_148
+GECOCA_149,Cancer,Colorectal Cancer,GECOCA_149
+GECOCA_150,Cancer,Colorectal Cancer,GECOCA_150
+GECOCA_151,Cancer,Colorectal Cancer,GECOCA_151
+GECOCA_152,Cancer,Colorectal Cancer,GECOCA_152
+GECOCA_153,Cancer,Colorectal Cancer,GECOCA_153
+GECOCA_154,Cancer,Colorectal Cancer,GECOCA_154
+GECOCA_155,Cancer,Colorectal Cancer,GECOCA_155
+GECOCA_156,Cancer,Colorectal Cancer,GECOCA_156
+GECOCA_157,Cancer,Colorectal Cancer,GECOCA_157
+GECOCA_158,Control,Healthy,GECOCA_158
+GECOCA_159,Cancer,Colorectal Cancer,GECOCA_159
+GECOCA_160,Control,Healthy,GECOCA_160
+GECOCA_161,Cancer,Colorectal Cancer,GECOCA_161
+GECOCA_162,Cancer,Colorectal Cancer,GECOCA_162
+GECOCA_163,Control,Healthy,GECOCA_163
+GECOCA_164,Cancer,Colorectal Cancer,GECOCA_164
+GECOCA_165,Cancer,Colorectal Cancer,GECOCA_165
+GECOCA_166,Cancer,Colorectal Cancer,GECOCA_166
+GECOCA_167,Cancer,Colorectal Cancer,GECOCA_167

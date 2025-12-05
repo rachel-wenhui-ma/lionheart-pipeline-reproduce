@@ -1,0 +1,271 @@
+Sample ID,Cancer Status,Cancer Type,Subject ID
+Mathios_0,Cancer,Lung Cancer,Mathios_0
+Mathios_1,Cancer,Lung Cancer,Mathios_1
+Mathios_2,Control,No Baseline Cancer,Mathios_2
+Mathios_3,Cancer,Lung Cancer,Mathios_3
+Mathios_4,Control,Benign,Mathios_4
+Mathios_5,Control,No Baseline Cancer,Mathios_5
+Mathios_6,Control,No Baseline Cancer,Mathios_6
+Mathios_7,Cancer,Lung Cancer,Mathios_7
+Mathios_8,Control,No Baseline Cancer,Mathios_8
+Mathios_9,Cancer,Met To Lung,Mathios_9
+Mathios_10,Control,Benign,Mathios_10
+Mathios_11,Control,Benign,Mathios_11
+Mathios_12,Control,Benign,Mathios_12
+Mathios_13,Cancer,Lung Cancer,Mathios_13
+Mathios_14,Control,Benign,Mathios_14
+Mathios_15,Control,No Baseline Cancer,Mathios_15
+Mathios_16,Cancer,Lung Cancer,Mathios_16
+Mathios_17,Control,No Baseline Cancer,Mathios_17
+Mathios_18,Control,No Baseline Cancer,Mathios_18
+Mathios_19,Control,No Baseline Cancer,Mathios_19
+Mathios_20,Cancer,Lung Cancer,Mathios_20
+Mathios_21,Control,No Baseline Cancer,Mathios_21
+Mathios_22,Cancer,Lung Cancer,Mathios_22
+Mathios_23,Cancer,Lung Cancer,Mathios_23
+Mathios_24,Cancer,Lung Cancer,Mathios_24
+Mathios_25,Cancer,Lung Cancer,Mathios_25
+Mathios_26,Control,No Baseline Cancer,Mathios_26
+Mathios_27,Control,Benign,Mathios_27
+Mathios_28,Cancer,Lung Cancer,Mathios_28
+Mathios_29,Control,No Baseline Cancer,Mathios_29
+Mathios_30,Control,Benign,Mathios_30
+Mathios_31,Control,No Baseline Cancer,Mathios_31
+Mathios_32,Cancer,Lung Cancer,Mathios_32
+Mathios_33,Control,Benign,Mathios_33
+Mathios_34,Cancer,Lung Cancer,Mathios_34
+Mathios_35,Control,Benign,Mathios_35
+Mathios_36,Control,No Baseline Cancer,Mathios_36
+Mathios_37,Control,Benign,Mathios_37
+Mathios_38,Cancer,Lung Cancer,Mathios_38
+Mathios_39,Cancer,Lung Cancer,Mathios_39
+Mathios_40,Control,No Baseline Cancer,Mathios_40
+Mathios_41,Cancer,Lung Cancer - Later Lung Cancer,Mathios_41
+Mathios_42,Control,Benign,Mathios_42
+Mathios_43,Control,No Lung Cancer - Later Lung Cancer,Mathios_43
+Mathios_44,Control,Benign,Mathios_44
+Mathios_45,Cancer,Met To Lung,Mathios_45
+Mathios_46,Control,No Baseline Cancer,Mathios_46
+Mathios_47,Cancer,Lung Cancer,Mathios_47
+Mathios_48,Control,No Lung Cancer - Other Cancer,Mathios_48
+Mathios_49,Cancer,Lung Cancer,Mathios_49
+Mathios_50,Control,Benign,Mathios_50
+Mathios_51,Control,No Lung Cancer - Other Cancer,Mathios_51
+Mathios_52,Cancer,Lung Cancer,Mathios_52
+Mathios_53,Control,No Baseline Cancer,Mathios_53
+Mathios_54,Control,Benign,Mathios_54
+Mathios_55,Control,No Baseline Cancer,Mathios_55
+Mathios_56,Control,No Lung Cancer - Other Cancer,Mathios_56
+Mathios_57,Cancer,Lung Cancer,Mathios_57
+Mathios_58,Control,Benign,Mathios_58
+Mathios_59,Cancer,Lung Cancer,Mathios_59
+Mathios_60,Control,No Baseline Cancer,Mathios_60
+Mathios_61,Control,No Baseline Cancer,Mathios_61
+Mathios_62,Cancer,Lung Cancer,Mathios_62
+Mathios_63,Control,No Baseline Cancer,Mathios_63
+Mathios_64,Control,Benign,Mathios_64
+Mathios_65,Control,Benign,Mathios_65
+Mathios_66,Cancer,Lung Cancer,Mathios_66
+Mathios_67,Control,Benign,Mathios_67
+Mathios_68,Control,Benign,Mathios_68
+Mathios_69,Control,No Lung Cancer - Later Lung Cancer,Mathios_69
+Mathios_70,Control,Benign,Mathios_70
+Mathios_71,Control,No Baseline Cancer,Mathios_71
+Mathios_72,Cancer,Lung Cancer,Mathios_72
+Mathios_73,Cancer,Lung Cancer,Mathios_73
+Mathios_74,Control,No Baseline Cancer,Mathios_74
+Mathios_75,Cancer,Lung Cancer,Mathios_75
+Mathios_76,Control,No Baseline Cancer,Mathios_76
+Mathios_77,Control,No Baseline Cancer,Mathios_77
+Mathios_78,Cancer,Lung Cancer,Mathios_78
+Mathios_79,Control,No Lung Cancer - Other Cancer,Mathios_79
+Mathios_80,Control,No Baseline Cancer,Mathios_80
+Mathios_81,Control,Benign,Mathios_81
+Mathios_82,Control,No Baseline Cancer,Mathios_82
+Mathios_83,Control,No Baseline Cancer,Mathios_83
+Mathios_84,Cancer,Lung Cancer,Mathios_84
+Mathios_85,Cancer,Lung Cancer,Mathios_85
+Mathios_86,Control,No Baseline Cancer,Mathios_86
+Mathios_87,Control,No Lung Cancer - Other Cancer,Mathios_87
+Mathios_88,Control,No Baseline Cancer,Mathios_88
+Mathios_89,Control,No Baseline Cancer,Mathios_89
+Mathios_90,Control,No Baseline Cancer,Mathios_90
+Mathios_91,Control,Benign,Mathios_91
+Mathios_92,Cancer,Lung Cancer - Other Cancer,Mathios_92
+Mathios_93,Cancer,Lung Cancer,Mathios_93
+Mathios_94,Control,Benign,Mathios_94
+Mathios_95,Control,No Baseline Cancer,Mathios_95
+Mathios_96,Control,No Baseline Cancer,Mathios_96
+Mathios_97,Cancer,Lung Cancer - Other Cancer,Mathios_97
+Mathios_98,Cancer,Lung Cancer,Mathios_98
+Mathios_99,Cancer,Lung Cancer,Mathios_99
+Mathios_100,Control,Benign,Mathios_100
+Mathios_101,Control,No Lung Cancer - Later Lung Cancer,Mathios_101
+Mathios_102,Control,Benign,Mathios_102
+Mathios_103,Control,Benign,Mathios_103
+Mathios_104,Control,Benign,Mathios_104
+Mathios_105,Control,Benign,Mathios_105
+Mathios_106,Control,No Lung Cancer - Later Lung Cancer,Mathios_106
+Mathios_107,Control,No Baseline Cancer,Mathios_107
+Mathios_108,Control,No Lung Cancer - Other Cancer,Mathios_108
+Mathios_109,Cancer,Lung Cancer,Mathios_109
+Mathios_110,Control,Benign,Mathios_110
+Mathios_111,Control,No Baseline Cancer,Mathios_111
+Mathios_112,Control,No Baseline Cancer,Mathios_112
+Mathios_113,Cancer,Lung Cancer,Mathios_113
+Mathios_114,Cancer,Lung Cancer,Mathios_114
+Mathios_115,Control,Benign,Mathios_115
+Mathios_116,Control,Benign,Mathios_116
+Mathios_117,Control,No Baseline Cancer,Mathios_117
+Mathios_118,Cancer,Lung Cancer,Mathios_118
+Mathios_119,Cancer,Lung Cancer,Mathios_119
+Mathios_120,Cancer,Lung Cancer,Mathios_120
+Mathios_121,Control,No Lung Cancer - Other Cancer,Mathios_121
+Mathios_122,Control,Benign,Mathios_122
+Mathios_123,Control,No Baseline Cancer,Mathios_123
+Mathios_124,Control,Benign,Mathios_124
+Mathios_125,Control,No Baseline Cancer,Mathios_125
+Mathios_126,Control,Benign,Mathios_126
+Mathios_127,Cancer,Lung Cancer,Mathios_127
+Mathios_128,Control,Benign,Mathios_128
+Mathios_129,Control,No Baseline Cancer,Mathios_129
+Mathios_130,Cancer,Lung Cancer,Mathios_130
+Mathios_131,Cancer,Met To Lung,Mathios_131
+Mathios_132,Control,No Baseline Cancer,Mathios_132
+Mathios_133,Control,No Baseline Cancer,Mathios_133
+Mathios_134,Cancer,Lung Cancer,Mathios_134
+Mathios_135,Cancer,Lung Cancer,Mathios_135
+Mathios_136,Cancer,Lung Cancer,Mathios_136
+Mathios_137,Control,Benign,Mathios_137
+Mathios_138,Control,No Baseline Cancer,Mathios_138
+Mathios_139,Cancer,Lung Cancer,Mathios_139
+Mathios_140,Control,No Baseline Cancer,Mathios_140
+Mathios_141,Control,No Baseline Cancer,Mathios_141
+Mathios_142,Control,No Baseline Cancer,Mathios_142
+Mathios_143,Cancer,Lung Cancer,Mathios_143
+Mathios_144,Control,No Lung Cancer - Other Cancer,Mathios_144
+Mathios_145,Cancer,Lung Cancer,Mathios_145
+Mathios_146,Control,No Baseline Cancer,Mathios_146
+Mathios_147,Control,No Baseline Cancer,Mathios_147
+Mathios_148,Cancer,Lung Cancer,Mathios_148
+Mathios_149,Control,No Lung Cancer - Other Cancer,Mathios_149
+Mathios_150,Cancer,Lung Cancer - Other Cancer,Mathios_150
+Mathios_151,Cancer,Lung Cancer,Mathios_151
+Mathios_152,Control,Benign,Mathios_152
+Mathios_153,Cancer,Lung Cancer,Mathios_153
+Mathios_154,Control,Benign,Mathios_154
+Mathios_155,Cancer,Lung Cancer,Mathios_155
+Mathios_156,Control,Benign,Mathios_156
+Mathios_157,Control,No Lung Cancer - Other Cancer,Mathios_157
+Mathios_158,Control,No Baseline Cancer,Mathios_158
+Mathios_159,Control,Benign,Mathios_159
+Mathios_160,Control,No Baseline Cancer,Mathios_160
+Mathios_161,Cancer,Lung Cancer,Mathios_161
+Mathios_162,Control,Benign,Mathios_162
+Mathios_163,Cancer,Lung Cancer,Mathios_163
+Mathios_164,Control,Benign,Mathios_164
+Mathios_165,Control,No Baseline Cancer,Mathios_165
+Mathios_166,Cancer,Lung Cancer,Mathios_166
+Mathios_167,Cancer,Lung Cancer,Mathios_167
+Mathios_168,Cancer,Lung Cancer,Mathios_168
+Mathios_169,Control,No Baseline Cancer,Mathios_169
+Mathios_170,Cancer,Lung Cancer,Mathios_170
+Mathios_171,Control,No Baseline Cancer,Mathios_171
+Mathios_172,Control,No Baseline Cancer,Mathios_172
+Mathios_173,Control,Benign,Mathios_173
+Mathios_174,Cancer,Lung Cancer,Mathios_174
+Mathios_175,Control,No Baseline Cancer,Mathios_175
+Mathios_176,Control,Benign,Mathios_176
+Mathios_177,Control,No Baseline Cancer,Mathios_177
+Mathios_178,Control,No Lung Cancer - Other Cancer,Mathios_178
+Mathios_179,Control,Benign,Mathios_179
+Mathios_180,Cancer,Lung Cancer,Mathios_180
+Mathios_181,Cancer,Met To Lung,Mathios_181
+Mathios_182,Control,No Baseline Cancer,Mathios_182
+Mathios_183,Control,No Lung Cancer - Other Cancer,Mathios_183
+Mathios_184,Control,Benign,Mathios_184
+Mathios_185,Control,No Baseline Cancer,Mathios_185
+Mathios_186,Control,Benign,Mathios_186
+Mathios_187,Control,Benign,Mathios_187
+Mathios_188,Control,Benign,Mathios_188
+Mathios_189,Control,No Lung Cancer - Later Lung Cancer,Mathios_189
+Mathios_190,Control,No Baseline Cancer,Mathios_190
+Mathios_191,Control,Benign,Mathios_191
+Mathios_192,Control,No Baseline Cancer,Mathios_192
+Mathios_193,Control,No Baseline Cancer,Mathios_193
+Mathios_194,Control,No Baseline Cancer,Mathios_194
+Mathios_195,Cancer,Lung Cancer,Mathios_195
+Mathios_196,Control,No Baseline Cancer,Mathios_196
+Mathios_197,Cancer,Met To Lung,Mathios_197
+Mathios_198,Cancer,Lung Cancer,Mathios_198
+Mathios_199,Control,No Baseline Cancer,Mathios_199
+Mathios_200,Cancer,Lung Cancer,Mathios_200
+Mathios_201,Control,No Baseline Cancer,Mathios_201
+Mathios_202,Control,No Baseline Cancer,Mathios_202
+Mathios_203,Control,No Baseline Cancer,Mathios_203
+Mathios_204,Control,Benign,Mathios_204
+Mathios_205,Control,No Baseline Cancer,Mathios_205
+Mathios_206,Control,Benign,Mathios_206
+Mathios_207,Cancer,Lung Cancer,Mathios_207
+Mathios_208,Cancer,Lung Cancer,Mathios_208
+Mathios_209,Control,No Baseline Cancer,Mathios_209
+Mathios_210,Cancer,Lung Cancer,Mathios_210
+Mathios_211,Control,No Baseline Cancer,Mathios_211
+Mathios_212,Control,No Baseline Cancer,Mathios_212
+Mathios_213,Control,Benign,Mathios_213
+Mathios_214,Control,Benign,Mathios_214
+Mathios_215,Control,No Baseline Cancer,Mathios_215
+Mathios_216,Control,No Baseline Cancer,Mathios_216
+Mathios_217,Control,Benign,Mathios_217
+Mathios_218,Control,Benign,Mathios_218
+Mathios_219,Control,No Baseline Cancer,Mathios_219
+Mathios_220,Control,No Baseline Cancer,Mathios_220
+Mathios_221,Cancer,Lung Cancer,Mathios_221
+Mathios_222,Cancer,Lung Cancer,Mathios_222
+Mathios_223,Control,Benign,Mathios_223
+Mathios_224,Cancer,Lung Cancer,Mathios_224
+Mathios_225,Control,No Baseline Cancer,Mathios_225
+Mathios_226,Cancer,Lung Cancer,Mathios_226
+Mathios_227,Cancer,Lung Cancer,Mathios_227
+Mathios_228,Control,Benign,Mathios_228
+Mathios_229,Control,Benign,Mathios_229
+Mathios_230,Cancer,Lung Cancer,Mathios_230
+Mathios_231,Control,No Baseline Cancer,Mathios_231
+Mathios_232,Cancer,Lung Cancer,Mathios_232
+Mathios_233,Cancer,Lung Cancer,Mathios_233
+Mathios_234,Control,Benign,Mathios_234
+Mathios_235,Control,No Baseline Cancer,Mathios_235
+Mathios_236,Control,No Baseline Cancer,Mathios_236
+Mathios_237,Control,No Baseline Cancer,Mathios_237
+Mathios_238,Cancer,Lung Cancer,Mathios_238
+Mathios_239,Control,Benign,Mathios_239
+Mathios_240,Control,No Baseline Cancer,Mathios_240
+Mathios_241,Control,No Baseline Cancer,Mathios_241
+Mathios_242,Control,No Baseline Cancer,Mathios_242
+Mathios_243,Control,Benign,Mathios_243
+Mathios_244,Cancer,Lung Cancer,Mathios_244
+Mathios_245,Control,No Baseline Cancer,Mathios_245
+Mathios_246,Control,No Baseline Cancer,Mathios_246
+Mathios_247,Control,No Baseline Cancer,Mathios_247
+Mathios_248,Cancer,Lung Cancer,Mathios_248
+Mathios_249,Control,No Baseline Cancer,Mathios_249
+Mathios_250,Control,Benign,Mathios_250
+Mathios_251,Cancer,Lung Cancer,Mathios_251
+Mathios_252,Cancer,Lung Cancer,Mathios_252
+Mathios_253,Control,Benign,Mathios_253
+Mathios_254,Control,Benign,Mathios_254
+Mathios_255,Control,No Baseline Cancer,Mathios_255
+Mathios_256,Control,No Baseline Cancer,Mathios_256
+Mathios_257,Cancer,Lung Cancer,Mathios_257
+Mathios_258,Cancer,Lung Cancer,Mathios_258
+Mathios_259,Control,Benign,Mathios_259
+Mathios_260,Cancer,Lung Cancer,Mathios_260
+Mathios_261,Control,No Lung Cancer - Other Cancer,Mathios_261
+Mathios_262,Cancer,Lung Cancer,Mathios_262
+Mathios_263,Control,Benign,Mathios_263
+Mathios_264,Control,No Baseline Cancer,Mathios_264
+Mathios_265,Cancer,Lung Cancer - Other Cancer,Mathios_265
+Mathios_266,Control,No Baseline Cancer,Mathios_266
+Mathios_267,Cancer,Lung Cancer,Mathios_267
+Mathios_268,Cancer,Lung Cancer - Other Cancer,Mathios_268
+Mathios_269,Control,No Lung Cancer - Other Cancer,Mathios_269
