@@ -65,9 +65,9 @@ We successfully reproduced the core computational components of the LIONHEART me
 ## 8\. Reference 
 
 \[1\] S. Freese et al., "Cross-dataset pan-cancer detection by correlating cell-free DNA fragment coverage with open chromatin sites across cell types,"   
-Nat. Commun., in press, 2024\. \[Online\]. Available: https://www.researchgate.net/publication/397850417. Accessed: Feb. 15, 2025\.
+Nat. Commun., in press, 2024\. \[Online\]. Available: https://www.researchgate.net/publication/397850417. Accessed: Dec. 4, 2025\.
 
-\[2\] S. Freese, “LIONHEART: Pan-cancer detection from cfDNA fragmentomics,” GitHub repository, 2024\. \[Online\]. Available: https://github.com/BesenbacherLab/lionheart. Accessed: Feb. 15, 2025\.
+\[2\] S. Freese, "LIONHEART: Pan-cancer detection from cfDNA fragmentomics," GitHub repository, 2024\. \[Online\]. Available: https://github.com/BesenbacherLab/lionheart. Accessed: Dec. 4, 2025\.
 
 ## 9\. AI Usage Acknowledgement
 
