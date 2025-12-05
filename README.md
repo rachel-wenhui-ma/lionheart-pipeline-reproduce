@@ -1,26 +1,33 @@
-# LIONHEART Feature Extraction Pipeline Reproduction
+# LIONHEART Pipeline Reproduction
 
-This repository contains a reproduction of LIONHEART's feature extraction pipeline for cancer prediction from chromatin accessibility data.
+This repository contains a reproduction of LIONHEART's pipeline for cancer prediction from chromatin accessibility data.
 
 ## Overview
 
-This implementation reproduces LIONHEART's feature extraction process, which converts BAM files into features for cancer prediction. The pipeline processes DNase-seq or ATAC-seq data and computes correlation features between sample coverage and cell type chromatin masks.
+This implementation reproduces LIONHEART's complete pipeline, consisting of two main components:
+
+1. **Feature Extraction**: Converts BAM files into features for cancer prediction. The pipeline processes DNase-seq or ATAC-seq data and computes correlation features between sample coverage and cell type chromatin masks across 898 cell types.
+
+2. **Model Training and Prediction**: Trains a LASSO logistic regression model using nested leave-one-dataset-out cross-validation, and applies the trained model to make cancer predictions from extracted features.
 
 ## Submission package (core deliverables)
 
 - `run_pipeline_all_chroms.py` and the modules in `src/`: end-to-end feature extraction and shared utilities (GC correction, mask loading, running stats, etc.).
 - `scripts/reorder_features.py`: converts the CSV output into the `(10, 898)` matrix layout expected by the official tooling.
 - `scripts/compare_feature_dataset.py`: aligns the reproduction output against the official `feature_dataset.npy` for validation.
+- `scripts/reproduce_model.py`: model training and prediction pipeline, including nested leave-one-dataset-out cross-validation and final model training.
 - `artifacts/20251130/`: frozen outputs for this submission (CSV/NPY features, reordered matrices, `feature_dataset.npy`, and the prediction CSV produced with the official model).
 
 All other helper scripts (e.g., `scripts/compare_dnase_only.py`, `scripts/list_top_diffs.py`, and the various logs/debug dumps) remain in-place for ongoing investigation but are not part of the minimal submission set. They can be archived or cleaned up later without affecting the core workflow.
 
 ## Core Components
 
-### Main Pipeline
+### Feature Extraction
+
+#### Main Pipeline
 - **`run_pipeline_all_chroms.py`** - Main pipeline script for feature extraction across all 22 autosomes
 
-### Source Modules (`src/`)
+#### Source Modules (`src/`)
 - `compute_coverage.py` - Coverage calculation and normalization
 - `extract_insert_size.py` - Fragment length extraction and correction
 - `compute_correlation.py` - Feature computation (Pearson R, p-value, etc.)
@@ -32,6 +39,16 @@ All other helper scripts (e.g., `scripts/compare_dnase_only.py`, `scripts/list_t
 - `running_stats.py` - Running statistics accumulation
 - `paths.py` - Path configuration
 - `optimized.py` - Numba-optimized functions
+
+### Model Training and Prediction
+
+#### Model Pipeline
+- **`scripts/reproduce_model.py`** - Model training and prediction script that:
+  - Loads features from multiple datasets
+  - Performs nested leave-one-dataset-out cross-validation for hyperparameter tuning
+  - Trains final LASSO logistic regression model with dataset-balanced sample weights
+  - Applies PCA with variance-based component selection
+  - Makes predictions on validation/test datasets
 
 ## Setup
 
@@ -130,6 +147,27 @@ python compare_feature_dataset.py \
 ```
 
 The script prints max/mean differences and optionally saves the stacked reproduction matrix for archiving.
+
+#### 4. Train Model and Make Predictions
+
+Train the model using nested leave-one-dataset-out cross-validation:
+
+```bash
+python scripts/reproduce_model.py
+```
+
+This script:
+- Loads features from 9 training datasets
+- Performs nested cross-validation to tune hyperparameters (PCA variance and L1 regularization C)
+- Trains the final model on all training data
+- Evaluates on the validation dataset (Zhu Validation)
+- Saves the trained model to `model/model.joblib`
+
+The model uses:
+- StandardScaler for feature normalization
+- PCA with variance-based component selection (default: 98.7%-99.7% variance)
+- LASSO logistic regression with dataset-balanced sample weights
+- Max-J threshold selection for optimal sensitivity/specificity balance
 
 ### Runtime Environment Variables
 
