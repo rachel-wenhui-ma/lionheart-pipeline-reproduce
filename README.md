@@ -10,16 +10,6 @@ This implementation reproduces LIONHEART's complete pipeline, consisting of two 
 
 2. **Model Training and Prediction**: Trains a LASSO logistic regression model using nested leave-one-dataset-out cross-validation, and applies the trained model to make cancer predictions from extracted features.
 
-## Submission package (core deliverables)
-
-- `run_pipeline_all_chroms.py` and the modules in `src/`: end-to-end feature extraction and shared utilities (GC correction, mask loading, running stats, etc.).
-- `scripts/reorder_features.py`: converts the CSV output into the `(10, 898)` matrix layout expected by the official tooling.
-- `scripts/compare_feature_dataset.py`: aligns the reproduction output against the official `feature_dataset.npy` for validation.
-- `scripts/reproduce_model.py`: model training and prediction pipeline, including nested leave-one-dataset-out cross-validation and final model training.
-- `artifacts/20251130/`: frozen outputs for this submission (CSV/NPY features, reordered matrices, `feature_dataset.npy`, and the prediction CSV produced with the official model).
-
-All other helper scripts (e.g., `scripts/compare_dnase_only.py`, `scripts/list_top_diffs.py`, and the various logs/debug dumps) remain in-place for ongoing investigation but are not part of the minimal submission set. They can be archived or cleaned up later without affecting the core workflow.
-
 ## Core Components
 
 ### Feature Extraction
@@ -211,17 +201,6 @@ The pipeline generates a CSV file with features for each cell type:
 
 - `DATA_SETUP.md` - Data download and setup instructions
 - `RESOURCES_SETUP.md` - LIONHEART resource files setup
-
-## Archive
-
-Development, debugging, and comparison scripts have been archived in the `archive/` directory:
-- `archive/comparison_scripts/` - Comparison with LIONHEART results
-- `archive/utility_scripts/` - Development utilities
-- `archive/debugging/` - Debugging scripts
-- `archive/testing/` - Test scripts
-- `archive/investigation/` - Investigation scripts
-- `archive/logs/` - Log files
-- `archive/outputs/` - Historical output files
 
 ## License
 
