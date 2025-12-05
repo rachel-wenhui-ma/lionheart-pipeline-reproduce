@@ -8,7 +8,7 @@ import os
 # Add current directory to path
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from src.extract_insert_size import extract_fragment_lengths, compute_fragment_features, extract_fragment_lengths_per_bin
+from src.extract_insert_size import extract_fragment_lengths_per_bin
 from src.compute_coverage import compute_coverage, normalize_megabins_simple
 from src.compute_correlation import compute_all_features
 from src.assemble_features import write_feature_vector
@@ -26,6 +26,8 @@ from lionheart.features.running_pearson_r import RunningPearsonR as OfficialRunn
 from src.blacklist import load_exclude_bins, apply_exclude_to_coverage
 from src.correction_gc import (
     calculate_correction_factors,
+)
+from src.correction_helpers import (
     correct_bias,
 )
 from src.correction_insert_size import (
@@ -36,6 +38,7 @@ import pysam
 import numpy as np
 from scipy import special
 import scipy.sparse
+import json
 from typing import Dict
 from collections import OrderedDict, defaultdict
 from multiprocessing import cpu_count
@@ -365,74 +368,57 @@ for chrom_idx, chrom in enumerate(all_chroms, 1):
         bam_path, chrom, bin_size=bin_size, mapq_threshold=20, use_overlap=True
     )
     
-        # -----------------------------
-        # 2. Compute Coverage
-        # -----------------------------
+    # -----------------------------
+    # 2. Compute Coverage
+    # -----------------------------
     if not using_sparse_coverage:
         print(f"  Step 2: Computing coverage for {chrom}...")
         coverage = compute_coverage(bam_path, chrom, bin_size=bin_size, mapq_threshold=20, use_overlap=True)
     else:
         coverage = None
     
-        # -----------------------------
-        # 3. Load GC Content (using LIONHEART's GC values from parquet file)
-        # -----------------------------
-        print(f"  Step 3: Loading GC content for {chrom} (from LIONHEART parquet file)...")
-        exclude_indices_10bp = exclude_bins_by_chrom.get(chrom, np.array([], dtype=np.int64))
-    
-        # Load LIONHEART's GC values (matching LIONHEART's approach)
-        # At 10bp level, use LIONHEART's _load_bins_and_exclude directly
-        if resources_dir.exists():
-            try:
-                from lionheart.features.create_dataset_inference import _load_bins_and_exclude
-                bins_path = resources_dir / "bin_indices_by_chromosome" / f"{chrom}.parquet"
-                if bins_path.exists():
-                    include_indices_10bp, gc_content = _load_bins_and_exclude(
-                        bins_path=bins_path,
-                        exclude=exclude_indices_10bp if len(exclude_indices_10bp) > 0 else None,
-                    )
-                    print(f"    Loaded GC from LIONHEART parquet (10bp): {len(gc_content):,} bins")
-                    print(f"    GC range: {gc_content.min():.4f} to {gc_content.max():.4f}, mean: {gc_content.mean():.4f}")
-                    use_lionheart_gc = True
-                else:
-                    raise FileNotFoundError(f"Bins file not found: {bins_path}")
-            except Exception as e:
-                print(f"    Warning: Failed to load LIONHEART GC ({e}), falling back to calculated GC")
-                gc_content = calculate_gc_content_per_bin(str(reference_fasta), chrom, bin_size=bin_size)
-                include_indices_10bp = None
-                use_lionheart_gc = False
-        else:
-            print(f"    Warning: Resources directory not found, calculating GC from reference")
+    # -----------------------------
+    # 3. Load GC Content (using LIONHEART's GC values from parquet file)
+    # -----------------------------
+    print(f"  Step 3: Loading GC content for {chrom} (from LIONHEART parquet file)...")
+    exclude_indices_10bp = exclude_bins_by_chrom.get(chrom, np.array([], dtype=np.int64))
+
+    # Load LIONHEART's GC values (matching LIONHEART's approach)
+    # At 10bp level, use LIONHEART's _load_bins_and_exclude directly
+    if resources_dir.exists():
+        try:
+            from lionheart.features.create_dataset_inference import _load_bins_and_exclude
+            bins_path = resources_dir / "bin_indices_by_chromosome" / f"{chrom}.parquet"
+            if bins_path.exists():
+                include_indices_10bp, gc_content = _load_bins_and_exclude(
+                    bins_path=bins_path,
+                    exclude=exclude_indices_10bp if len(exclude_indices_10bp) > 0 else None,
+                )
+                print(f"    Loaded GC from LIONHEART parquet (10bp): {len(gc_content):,} bins")
+                print(f"    GC range: {gc_content.min():.4f} to {gc_content.max():.4f}, mean: {gc_content.mean():.4f}")
+                use_lionheart_gc = True
+            else:
+                raise FileNotFoundError(f"Bins file not found: {bins_path}")
+        except Exception as e:
+            print(f"    Warning: Failed to load LIONHEART GC ({e}), falling back to calculated GC")
             gc_content = calculate_gc_content_per_bin(str(reference_fasta), chrom, bin_size=bin_size)
             include_indices_10bp = None
             use_lionheart_gc = False
-    
-        # -----------------------------
-        # 4. Filter coverage to match GC's include_indices (if using LIONHEART GC)
-        # -----------------------------
-        if use_lionheart_gc and include_indices_10bp is not None:
+    else:
+        print(f"    Warning: Resources directory not found, calculating GC from reference")
+        gc_content = calculate_gc_content_per_bin(str(reference_fasta), chrom, bin_size=bin_size)
+        include_indices_10bp = None
+        use_lionheart_gc = False
+
+    # -----------------------------
+    # 4. Filter coverage to match GC's include_indices (if using LIONHEART GC)
+    # -----------------------------
+    if use_lionheart_gc and include_indices_10bp is not None:
             # Filter coverage and fragment lengths to match GC's include_indices (10bp level)
             # This ensures all arrays have the same length for subsequent corrections
             print(f"  Step 4a: Filtering coverage to match GC's include_indices for {chrom}...")
-        if coverage is not None:
-            print(f"    Original coverage bins: {len(coverage):,}")
-        else:
-            print("    Loading coverage from sparse arrays")
-            print(f"    GC bins (after exclude, 10bp): {len(gc_content):,}")
-            if using_sparse_coverage:
-                sparse_cov_file = coverage_sparse_dir / f"{chrom}.npz"
-                if sparse_cov_file.exists():
-                    coverage = load_sparse_vector(
-                        sparse_cov_file,
-                        indices=include_indices_10bp,
-                        dtype=np.float64,
-                        decimals=2,
-                    )
-                else:
-                    print(f"    Warning: sparse coverage file not found: {sparse_cov_file}. Falling back to BAM coverage.")
-                    coverage = compute_coverage(bam_path, chrom, bin_size=bin_size, mapq_threshold=20, use_overlap=True)
-                    coverage = coverage[include_indices_10bp]
-            else:
+            if coverage is not None:
+                print(f"    Original coverage bins: {len(coverage):,}")
                 if len(include_indices_10bp) <= len(coverage):
                     coverage = coverage[include_indices_10bp]
                     mean_frag_len = mean_frag_len[include_indices_10bp]
@@ -444,6 +430,25 @@ for chrom_idx, chrom in enumerate(all_chroms, 1):
                     mean_frag_len = mean_frag_len[valid_indices]
                     gc_content = gc_content[:len(valid_indices)]  # Also clip GC to match
                     include_indices_10bp = valid_indices
+            else:
+                print("    Loading coverage from sparse arrays")
+                print(f"    GC bins (after exclude, 10bp): {len(gc_content):,}")
+                if using_sparse_coverage:
+                    sparse_cov_file = coverage_sparse_dir / f"{chrom}.npz"
+                    if sparse_cov_file.exists():
+                        coverage = load_sparse_vector(
+                            sparse_cov_file,
+                            indices=include_indices_10bp,
+                            dtype=np.float64,
+                            decimals=2,
+                        )
+                    else:
+                        print(f"    Warning: sparse coverage file not found: {sparse_cov_file}. Falling back to BAM coverage.")
+                        coverage = compute_coverage(bam_path, chrom, bin_size=bin_size, mapq_threshold=20, use_overlap=True)
+                        coverage = coverage[include_indices_10bp]
+                else:
+                    coverage = compute_coverage(bam_path, chrom, bin_size=bin_size, mapq_threshold=20, use_overlap=True)
+                    coverage = coverage[include_indices_10bp]
             print(f"    Filtered coverage bins: {len(coverage):,}")
             if insert_size_sparse_dir is not None:
                 sparse_file = insert_size_sparse_dir / f"{chrom}.npz"
@@ -462,148 +467,166 @@ for chrom_idx, chrom in enumerate(all_chroms, 1):
                         np.save(debug_dump_dir / f"{chrom}_insert_sizes_mean.npy", mean_frag_len.astype(np.float64))
                 else:
                     print(f"    Warning: Insert size sparse file not found: {sparse_file}. Using extracted fragment lengths.")
-            coverage_raw_counts = coverage.copy()
-            if debug_dump_enabled and chrom == debug_dump_chrom:
-                debug_dump_dir.mkdir(parents=True, exist_ok=True)
-                np.save(debug_dump_dir / f"{chrom}_raw_sample_cov.npy", coverage.astype(np.float64))
-    
-        # -----------------------------
-        # 5. Outlier Detection (ZIPoisson)
-        # -----------------------------
-        print(f"  Step 5: Detecting outliers with ZIPoisson for {chrom}...")
-        clipping_val = find_clipping_threshold(coverage)
-        coverage_clipped = clip_outliers(coverage, clipping_val)
-        coverage_raw_counts[coverage_raw_counts > clipping_val] = np.nan
-        if debug_dump_enabled and chrom == debug_dump_chrom:
-            np.save(debug_dump_dir / f"{chrom}_clip_sample_cov.npy", coverage_clipped.astype(np.float64))
-    
-        # -----------------------------
-        # 6. GC Correction
-        # -----------------------------
-        print(f"  Step 6: Applying GC correction for {chrom}...")
-        gc_midpoints, gc_factors = calculate_correction_factors(
-            bias_scores=gc_content,
-            coverages=coverage_clipped,
-            bin_edges=gc_correction_bin_edges,
-        )
-        coverage_gc_corrected = correct_bias(
-            coverages=coverage_clipped,
-            correct_factors=gc_factors,
-            bias_scores=gc_content,
-            bin_edges=gc_correction_bin_edges,
-        )
-        if debug_dump_enabled and chrom == debug_dump_chrom:
-            np.save(debug_dump_dir / f"{chrom}_gc_corrected_sample_cov.npy", coverage_gc_corrected.astype(np.float64))
-    
-        # -----------------------------
-        # 7. Insert Size Correction
-        # -----------------------------
-        print(f"  Step 7: Applying insert size correction for {chrom}...")
-    
-        insert_size_factors = calculate_insert_size_correction_factors(
-            coverages=coverage_raw_counts,
-            insert_sizes=mean_frag_len,
-            bin_edges=insert_size_correction_bin_edges,
-            base_sigma=8.026649608460776,
-            df=5,
-            nan_extremes=True,
-        )
-    
-        # Apply three corrections sequentially
-        coverage_after_noise = coverage_gc_corrected.copy()
-        valid_mask = mean_frag_len > 0
-        if np.any(valid_mask):
-            # 1. Noise correction
-            coverage_after_noise[valid_mask] = correct_bias(
-                coverages=coverage_gc_corrected[valid_mask],
-                correct_factors=insert_size_factors["noise_correction_factor"],
-                bias_scores=mean_frag_len[valid_mask],
-                bin_edges=insert_size_correction_bin_edges,
-            )
-            if debug_dump_enabled and chrom == debug_dump_chrom:
-                np.save(debug_dump_dir / f"{chrom}_insert_noise_corrected_cov.npy", coverage_after_noise.astype(np.float64))
-        
-            # 2. Skewness correction
-            coverage_after_skew = coverage_after_noise.copy()
-            coverage_after_skew[valid_mask] = correct_bias(
-                coverages=coverage_after_noise[valid_mask],
-                correct_factors=insert_size_factors["skewness_correction_factor"],
-                bias_scores=mean_frag_len[valid_mask],
-                bin_edges=insert_size_correction_bin_edges,
-            )
-            if debug_dump_enabled and chrom == debug_dump_chrom:
-                np.save(debug_dump_dir / f"{chrom}_insert_skew_corrected_cov.npy", coverage_after_skew.astype(np.float64))
-        
-            # 3. Mean shift correction
-            coverage_insert_corrected = coverage_after_skew.copy()
-            coverage_insert_corrected[valid_mask] = correct_bias(
-                coverages=coverage_after_skew[valid_mask],
-                correct_factors=insert_size_factors["mean_correction_factor"],
-                bias_scores=mean_frag_len[valid_mask],
-                bin_edges=insert_size_correction_bin_edges,
-            )
-            if debug_dump_enabled and chrom == debug_dump_chrom:
-                np.save(debug_dump_dir / f"{chrom}_insert_mean_corrected_cov.npy", coverage_insert_corrected.astype(np.float64))
-        else:
-            coverage_insert_corrected = coverage_gc_corrected.copy()
-    
-        # -----------------------------
-        # 8. Megabin Normalization
-        # -----------------------------
-        print(f"  Step 8: Applying megabin normalization for {chrom}...")
-        # Calculate start coordinates for each bin (LIONHEART uses actual genomic positions)
-        # LIONHEART uses: include_indices * 10 (10bp-based indices converted to genomic coordinates)
-        if include_indices_10bp is not None:
-            start_coordinates = include_indices_10bp * bin_size  # bin_size=10, so include_indices_10bp * 10
-        else:
-            # Fallback: use sequential indices if include_indices not available
-            start_coordinates = np.arange(len(coverage_insert_corrected)) * bin_size
-        coverage_megabin_norm = normalize_megabins_simple(
-            coverage_insert_corrected,
-            bin_size=bin_size,
-            mbin_size=5_000_000,  # 5MB megabins (LIONHEART default)
-            stride=500_000,       # 500KB stride (LIONHEART default)
-            center=None,          # No centering (LIONHEART uses center=None)
-            scale="mean",         # Scale by mean (LIONHEART default)
-            start_coordinates=start_coordinates,
-            clip_above_quantile=None,  # LIONHEART default: no clipping
-        )
-    
-        # LIONHEART does NOT apply final z-score normalization after megabin normalization
-        # Use megabin-normalized coverage directly for correlation calculation
-        coverage_norm = coverage_megabin_norm
-        if debug_dump_enabled and chrom == debug_dump_chrom:
-            np.save(debug_dump_dir / f"{chrom}_megabin_normalized_cov.npy", coverage_norm.astype(np.float64))
-    
-        # -----------------------------
-        # 9. Apply Blacklist/Exclude (if not already applied via LIONHEART GC)
-        # -----------------------------
-        # Note: If using LIONHEART GC, exclude is already applied via include_indices_10bp
-        # So coverage_norm is already filtered. We just need to ensure valid_mask is set.
-        exclude_indices = exclude_bins_by_chrom.get(chrom, np.array([], dtype=np.int64))
-    
-        if use_lionheart_gc and include_indices_10bp is not None:
-            # Already filtered in Step 4a, just set valid_mask
-            valid_mask = np.ones(len(coverage_norm), dtype=bool)
-            print(f"  Step 9: Blacklist already applied via LIONHEART GC filtering ({len(coverage_norm):,} bins)")
-        else:
-            # Apply exclude if not using LIONHEART GC
-            if len(exclude_indices) > 0:
-                print(f"  Step 9: Applying blacklist removal for {chrom}...")
-                print(f"    Excluding {len(exclude_indices):,} bins (10bp resolution)")
-                # At 10bp level, exclude indices are already at 10bp
-                exclude_indices_10bp = exclude_indices[exclude_indices < len(coverage_norm)]
-            
-                valid_mask = np.ones(len(coverage_norm), dtype=bool)
-                valid_mask[exclude_indices_10bp] = False
-            
-                coverage_norm = coverage_norm[valid_mask]
-                gc_content = gc_content[valid_mask]
-                mean_frag_len = mean_frag_len[valid_mask]
-            
-                print(f"    Coverage after exclusion: {len(coverage_norm):,} bins (removed {len(exclude_indices_10bp):,} bins)")
+    else:
+        # Not using LIONHEART GC, ensure coverage is loaded
+        if coverage is None:
+            if using_sparse_coverage:
+                sparse_cov_file = coverage_sparse_dir / f"{chrom}.npz"
+                if sparse_cov_file.exists():
+                    coverage = load_sparse_vector(
+                        sparse_cov_file,
+                        indices=None,
+                        dtype=np.float64,
+                        decimals=2,
+                    )
+                else:
+                    print(f"    Warning: sparse coverage file not found: {sparse_cov_file}. Computing from BAM.")
+                    coverage = compute_coverage(bam_path, chrom, bin_size=bin_size, mapq_threshold=20, use_overlap=True)
             else:
-                valid_mask = np.ones(len(coverage_norm), dtype=bool)
+                coverage = compute_coverage(bam_path, chrom, bin_size=bin_size, mapq_threshold=20, use_overlap=True)
+    
+    coverage_raw_counts = coverage.copy()
+    if debug_dump_enabled and chrom == debug_dump_chrom:
+        debug_dump_dir.mkdir(parents=True, exist_ok=True)
+        np.save(debug_dump_dir / f"{chrom}_raw_sample_cov.npy", coverage.astype(np.float64))
+
+    # -----------------------------
+    # 5. Outlier Detection (ZIPoisson)
+    # -----------------------------
+    print(f"  Step 5: Detecting outliers with ZIPoisson for {chrom}...")
+    clipping_val = find_clipping_threshold(coverage)
+    coverage_clipped = clip_outliers(coverage, clipping_val)
+    coverage_raw_counts[coverage_raw_counts > clipping_val] = np.nan
+    if debug_dump_enabled and chrom == debug_dump_chrom:
+        np.save(debug_dump_dir / f"{chrom}_clip_sample_cov.npy", coverage_clipped.astype(np.float64))
+
+    # -----------------------------
+    # 6. GC Correction
+    # -----------------------------
+    print(f"  Step 6: Applying GC correction for {chrom}...")
+    gc_midpoints, gc_factors = calculate_correction_factors(
+        bias_scores=gc_content,
+        coverages=coverage_clipped,
+        bin_edges=gc_correction_bin_edges,
+    )
+    coverage_gc_corrected = correct_bias(
+        coverages=coverage_clipped,
+        correct_factors=gc_factors,
+        bias_scores=gc_content,
+        bin_edges=gc_correction_bin_edges,
+    )
+    if debug_dump_enabled and chrom == debug_dump_chrom:
+        np.save(debug_dump_dir / f"{chrom}_gc_corrected_sample_cov.npy", coverage_gc_corrected.astype(np.float64))
+
+    # -----------------------------
+    # 7. Insert Size Correction
+    # -----------------------------
+    print(f"  Step 7: Applying insert size correction for {chrom}...")
+
+    insert_size_factors = calculate_insert_size_correction_factors(
+        coverages=coverage_raw_counts,
+        insert_sizes=mean_frag_len,
+        bin_edges=insert_size_correction_bin_edges,
+        base_sigma=8.026649608460776,
+        df=5,
+        nan_extremes=True,
+    )
+
+    # Apply three corrections sequentially
+    coverage_after_noise = coverage_gc_corrected.copy()
+    valid_mask = mean_frag_len > 0
+    if np.any(valid_mask):
+        # 1. Noise correction
+        coverage_after_noise[valid_mask] = correct_bias(
+            coverages=coverage_gc_corrected[valid_mask],
+            correct_factors=insert_size_factors["noise_correction_factor"],
+            bias_scores=mean_frag_len[valid_mask],
+            bin_edges=insert_size_correction_bin_edges,
+        )
+        if debug_dump_enabled and chrom == debug_dump_chrom:
+            np.save(debug_dump_dir / f"{chrom}_insert_noise_corrected_cov.npy", coverage_after_noise.astype(np.float64))
+    
+        # 2. Skewness correction
+        coverage_after_skew = coverage_after_noise.copy()
+        coverage_after_skew[valid_mask] = correct_bias(
+            coverages=coverage_after_noise[valid_mask],
+            correct_factors=insert_size_factors["skewness_correction_factor"],
+            bias_scores=mean_frag_len[valid_mask],
+            bin_edges=insert_size_correction_bin_edges,
+        )
+        if debug_dump_enabled and chrom == debug_dump_chrom:
+            np.save(debug_dump_dir / f"{chrom}_insert_skew_corrected_cov.npy", coverage_after_skew.astype(np.float64))
+    
+        # 3. Mean shift correction
+        coverage_insert_corrected = coverage_after_skew.copy()
+        coverage_insert_corrected[valid_mask] = correct_bias(
+            coverages=coverage_after_skew[valid_mask],
+            correct_factors=insert_size_factors["mean_correction_factor"],
+            bias_scores=mean_frag_len[valid_mask],
+            bin_edges=insert_size_correction_bin_edges,
+        )
+        if debug_dump_enabled and chrom == debug_dump_chrom:
+            np.save(debug_dump_dir / f"{chrom}_insert_mean_corrected_cov.npy", coverage_insert_corrected.astype(np.float64))
+    else:
+        coverage_insert_corrected = coverage_gc_corrected.copy()
+
+    # -----------------------------
+    # 8. Megabin Normalization
+    # -----------------------------
+    print(f"  Step 8: Applying megabin normalization for {chrom}...")
+    # Calculate start coordinates for each bin (LIONHEART uses actual genomic positions)
+    # LIONHEART uses: include_indices * 10 (10bp-based indices converted to genomic coordinates)
+    if include_indices_10bp is not None:
+        start_coordinates = include_indices_10bp * bin_size  # bin_size=10, so include_indices_10bp * 10
+    else:
+        # Fallback: use sequential indices if include_indices not available
+        start_coordinates = np.arange(len(coverage_insert_corrected)) * bin_size
+    coverage_megabin_norm = normalize_megabins_simple(
+        coverage_insert_corrected,
+        bin_size=bin_size,
+        mbin_size=5_000_000,  # 5MB megabins (LIONHEART default)
+        stride=500_000,       # 500KB stride (LIONHEART default)
+        center=None,          # No centering (LIONHEART uses center=None)
+        scale="mean",         # Scale by mean (LIONHEART default)
+        start_coordinates=start_coordinates,
+        clip_above_quantile=None,  # LIONHEART default: no clipping
+    )
+
+    # LIONHEART does NOT apply final z-score normalization after megabin normalization
+    # Use megabin-normalized coverage directly for correlation calculation
+    coverage_norm = coverage_megabin_norm
+    if debug_dump_enabled and chrom == debug_dump_chrom:
+        np.save(debug_dump_dir / f"{chrom}_megabin_normalized_cov.npy", coverage_norm.astype(np.float64))
+
+    # -----------------------------
+    # 9. Apply Blacklist/Exclude (if not already applied via LIONHEART GC)
+    # -----------------------------
+    # Note: If using LIONHEART GC, exclude is already applied via include_indices_10bp
+    # So coverage_norm is already filtered. We just need to ensure valid_mask is set.
+    exclude_indices = exclude_bins_by_chrom.get(chrom, np.array([], dtype=np.int64))
+
+    if use_lionheart_gc and include_indices_10bp is not None:
+        # Already filtered in Step 4a, just set valid_mask
+        valid_mask = np.ones(len(coverage_norm), dtype=bool)
+        print(f"  Step 9: Blacklist already applied via LIONHEART GC filtering ({len(coverage_norm):,} bins)")
+    else:
+        # Apply exclude if not using LIONHEART GC
+        if len(exclude_indices) > 0:
+            print(f"  Step 9: Applying blacklist removal for {chrom}...")
+            print(f"    Excluding {len(exclude_indices):,} bins (10bp resolution)")
+            # At 10bp level, exclude indices are already at 10bp
+            exclude_indices_10bp = exclude_indices[exclude_indices < len(coverage_norm)]
+        
+            valid_mask = np.ones(len(coverage_norm), dtype=bool)
+            valid_mask[exclude_indices_10bp] = False
+        
+            coverage_norm = coverage_norm[valid_mask]
+            gc_content = gc_content[valid_mask]
+            mean_frag_len = mean_frag_len[valid_mask]
+        
+            print(f"    Coverage after exclusion: {len(coverage_norm):,} bins (removed {len(exclude_indices_10bp):,} bins)")
+        else:
+            valid_mask = np.ones(len(coverage_norm), dtype=bool)
     
     # Deferred debug save for include indices (shared across mask types)
     if debug_dump_enabled and chrom == debug_dump_chrom:
@@ -1014,7 +1037,7 @@ for mask_type in mask_types_to_process:
         else:
             cosine_sim = 0.0
         
-        # Store all 10 features
+        # Store all 10 features (Pearson R will be standardized later)
         corr_stats[f"pearson_r_{key_prefix}"] = float(r)
         corr_stats[f"p_value_{key_prefix}"] = float(p)
         corr_stats[f"fraction_within_{key_prefix}"] = float(fraction_within)
@@ -1025,6 +1048,36 @@ for mask_type in mask_types_to_process:
         corr_stats[f"y_squared_sum_{key_prefix}"] = stats['y_squared_sum']
         corr_stats[f"xy_sum_{key_prefix}"] = stats['xy_sum']
         corr_stats[f"n_{key_prefix}"] = float(n)
+
+# -----------------------------
+# 10.5. Standardize Pearson R (matching LIONHEART)
+# -----------------------------
+print("\nStep 10.5: Standardizing Pearson R values...")
+# Extract all Pearson R values
+pearson_r_keys = [k for k in corr_stats.keys() if k.startswith("pearson_r_")]
+pearson_r_values = np.array([corr_stats[k] for k in pearson_r_keys])
+
+# Standardize: z = (x - mean) / std
+pearson_r_mean = np.mean(pearson_r_values)
+pearson_r_std = np.std(pearson_r_values)
+if pearson_r_std > 0:
+    pearson_r_standardized = (pearson_r_values - pearson_r_mean) / pearson_r_std
+else:
+    pearson_r_standardized = pearson_r_values - pearson_r_mean  # Only center if std=0
+
+# Update corr_stats with standardized values
+for i, key in enumerate(pearson_r_keys):
+    corr_stats[key] = float(pearson_r_standardized[i])
+
+print(f"  Standardized {len(pearson_r_keys)} Pearson R values")
+print(f"  Mean (before): {pearson_r_mean:.6f}, Std (before): {pearson_r_std:.6f}")
+print(f"  Mean (after): {np.mean(pearson_r_standardized):.6f}, Std (after): {np.std(pearson_r_standardized):.6f}")
+
+# Save standardization parameters (for reference)
+std_params_path = Path(output_path).with_suffix(".standardization_params.json")
+with open(std_params_path, "w") as f:
+    json.dump({"mean": float(pearson_r_mean), "std": float(pearson_r_std)}, f)
+print(f"  Saved standardization parameters to {std_params_path}")
 
 # -----------------------------
 # 11. Write Features

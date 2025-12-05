@@ -4,7 +4,7 @@ from scipy.stats import t
 from scipy.special import erf
 from scipy.optimize import minimize
 
-from src.correction_gc import (
+from src.correction_helpers import (
     average_bins,
     smoothe_signal,
     set_extremes_to_nan,
@@ -21,10 +21,20 @@ def calculate_insert_size_correction_factors(
     final_mean_insert_size: float = 166.0,
     nan_extremes: Union[str, bool] = False,
 ) -> dict:
+    """
+
+    nan_extremes
+        Whether to set the correction factors for the extreme left
+        and/or extreme right bins to NaN.
+        When `True`, both extremes become NaN.
+        When a string from {'min','max'}, the selected
+        extreme becomes NaN.
+    """
     coverages = coverages.copy()
     insert_sizes = insert_sizes.copy()
     bin_edges = bin_edges.copy()
 
+    # Clip any negative coverages (from prior corrections)
     coverages[coverages < 0] = 0
 
     assert isinstance(nan_extremes, (str, bool))
@@ -34,6 +44,8 @@ def calculate_insert_size_correction_factors(
             f"'min' or 'max'. Got: '{nan_extremes}'."
         )
 
+    # Whether to include the extreme bins
+    # in the objective function
     slicer_fn = lambda x: x  # noqa: E731
     if nan_extremes:
         if isinstance(nan_extremes, str):
@@ -46,6 +58,7 @@ def calculate_insert_size_correction_factors(
 
     lower_bound, upper_bound = min(bin_edges), max(bin_edges)
 
+    # Fit skewed student's t distribution
     (
         fitted_dist,
         observed_dist,
@@ -60,11 +73,13 @@ def calculate_insert_size_correction_factors(
         slicer_fn=slicer_fn,
     )
 
+    # Calculate correction factor for the noise
     noise_correction = (observed_dist / np.nanmean(observed_dist)) / (
         fitted_dist / np.nanmean(fitted_dist)
     )
     noise_correction /= np.nanmean(noise_correction)
 
+    # Calculate correction factor for the skew
     inverse_skewness_weights = _calculate_inverse_skewness(
         bin_midpoints_=bin_midpoints_, skewness=optimal_params["skewness"]
     )
@@ -72,6 +87,11 @@ def calculate_insert_size_correction_factors(
     if not int(np.sum(~np.isnan(inverse_skewness_weights))):
         raise ValueError("No elements in `inverse_skewness_weights` that was not NaN.")
 
+    # For the last correction step (of means)
+    # we need to first correct the coverages
+    # and then refit a distribution
+
+    # Correct noise
     coverages[insert_sizes > 0] = correct_bias(
         coverages=coverages[insert_sizes > 0],
         correct_factors=noise_correction,
@@ -79,6 +99,7 @@ def calculate_insert_size_correction_factors(
         bin_edges=bin_edges,
     )
 
+    # Correct skewness
     coverages[insert_sizes > 0] = correct_bias(
         coverages=coverages[insert_sizes > 0],
         correct_factors=inverse_skewness_weights,
@@ -86,6 +107,8 @@ def calculate_insert_size_correction_factors(
         bin_edges=bin_edges,
     )
 
+    # Calculate first corrected bias distribution for output
+    # To allow plotting the correction steps
     _, first_corrected_dist = average_bins(
         x=insert_sizes[insert_sizes > 0],
         y=coverages[insert_sizes > 0],
@@ -93,6 +116,8 @@ def calculate_insert_size_correction_factors(
     )
     first_corrected_dist /= np.nanmean(first_corrected_dist)
 
+    # Fit skewed student's t distribution to
+    # noise- and skewness corrected coverages
     (
         refitted_dist,
         intially_corrected_dist,
@@ -104,10 +129,13 @@ def calculate_insert_size_correction_factors(
         bin_edges=bin_edges,
         base_sigma=base_sigma,
         df=df,
-        skewness_loss_weight=0.1,
+        skewness_loss_weight=0.1,  # Heavy penalization!
         slicer_fn=slicer_fn,
     )
 
+    # Use the optimal parameters from the refit
+    # to generate the final target distribution
+    # with a given mean and zero skewness
     target_dist = _calculate_mixture_distribution(
         bin_midpoints_=bin_midpoints_,
         coverages=coverages,
@@ -121,17 +149,20 @@ def calculate_insert_size_correction_factors(
     )
     target_dist /= np.nanmean(target_dist)
 
+    # Calculate correction factor for the mean shift
     mean_correction = (
         intially_corrected_dist / np.nanmean(intially_corrected_dist)
     ) / (target_dist / np.nanmean(target_dist))
     mean_correction /= np.nanmean(mean_correction)
 
+    # Set extreme bins to NaN (when specified)
     noise_correction = set_extremes_to_nan(noise_correction, nan_extremes=nan_extremes)
     inverse_skewness_weights = set_extremes_to_nan(
         inverse_skewness_weights, nan_extremes=nan_extremes
     )
     mean_correction = set_extremes_to_nan(mean_correction, nan_extremes=nan_extremes)
 
+    # Add optimal refitting parameters to optimal params dict
     optimal_params = {f"initial_fit__{key}": val for key, val in optimal_params.items()}
     refit_optimal_params = {
         f"refit__{key}": val for key, val in refit_optimal_params.items()
@@ -159,15 +190,17 @@ def _calculate_composite_distribution(
     base_sigma: float,
     df: int = 5,
     skewness_loss_weight: float = 0.005,
-    slicer_fn: Callable = lambda x: x,
+    slicer_fn: Callable = lambda x: x,  # Could use this to optimize distance around the peak only
     final_smoothing_settings: dict = {
         "kernel_size": 5,
         "kernel_type": "gaussian",
         "kernel_std": 1.0,
     },
 ) -> Tuple[np.ndarray, np.ndarray, np.ndarray, List[float]]:
+    # Find upper and lower bounds for the clipped distribution
     lower_bound, upper_bound = min(bin_edges), max(bin_edges)
 
+    # Calculate observed bias distribution
     bin_midpoints_, observed_dist = average_bins(
         x=insert_sizes[insert_sizes > 0],
         y=coverages[insert_sizes > 0],
@@ -194,6 +227,7 @@ def _calculate_composite_distribution(
         slicer_fn=slicer_fn,
     )
 
+    # Smoothe the fitted mixture distribution
     composite_distribution = smoothe_signal(
         composite_distribution / np.nanmean(composite_distribution),
         **final_smoothing_settings,
@@ -218,21 +252,30 @@ def _calculate_mixture_distribution(
     skewness: float = 0.0,
     scale_multiplier: float = 1,
 ) -> np.ndarray:
+    # Calculate the frequency of each coverage value to use as weights
     coverage_counts = np.bincount(coverages[~np.isnan(coverages)].astype(int))
     coverage_probs = coverage_counts / np.nansum(coverage_counts)
 
+    # Initialize the composite distribution
     composite_distribution = np.zeros_like(bin_midpoints_, dtype=float)
 
+    # Calculate the scaling factors for the t-distribution within the bounds
     t_scale_factor = t.cdf(
         upper_bound, df, loc=mean_insert_size, scale=base_sigma * scale_multiplier
     ) - t.cdf(
         lower_bound, df, loc=mean_insert_size, scale=base_sigma * scale_multiplier
     )
 
+    # Generate the distribution for each available coverage value
+    # And sum them, weighted by the probability for each coverage value
     for coverage, probability in enumerate(coverage_probs):
-        if probability > 0 and coverage > 0:
+        if probability > 0 and coverage > 0:  # Make sure to skip coverage of 0
+            # Adjust the standard deviation for the coverage depth and apply the scale multiplier
+            # The bin-wise spread of insert sizes is inversely proportional to the
+            # square root of the coverage depth (Central Limit Theorem)
             depth_sigma = base_sigma / np.sqrt(coverage) * scale_multiplier
 
+            # Calculate the t-distribution PDF
             distribution = _skewed_t_pdf(
                 bin_midpoints_=bin_midpoints_,
                 df=df,
@@ -241,13 +284,17 @@ def _calculate_mixture_distribution(
                 skewness=skewness,
             )
 
+            # Clip the distribution manually
             distribution[bin_midpoints_ < lower_bound] = 0
             distribution[bin_midpoints_ > upper_bound] = 0
 
+            # Normalize the distribution for the clipped range
             distribution /= t_scale_factor * depth_sigma
 
+            # Weight the distribution by its probability and add to the composite
             composite_distribution += distribution * probability
 
+    # Normalize the composite distribution
     composite_distribution /= np.nanmean(composite_distribution)
 
     return composite_distribution
@@ -265,8 +312,10 @@ def _objective_function(
     skewness_loss_weight: float,
     slicer_fn: Callable = lambda x: x,
 ):
+    # Unpack the arguments for optimization
     scale_multiplier, skewness, mean_insert_size = opt_args
 
+    # Fit the distribution with the given optimization parameters
     fitted_dist = _calculate_mixture_distribution(
         bin_midpoints_=bin_midpoints_,
         coverages=coverages,
@@ -279,9 +328,11 @@ def _objective_function(
         scale_multiplier=scale_multiplier,
     )
 
+    # Normalize to mean=1
     fitted_dist /= np.nanmean(fitted_dist)
     observed_dist /= np.nanmean(observed_dist)
 
+    # Calculate the error between the fitted and observeds distributions
     error = (
         np.nanmean((slicer_fn(fitted_dist) - slicer_fn(observed_dist)) ** 2)
         + skewness_loss_weight * skewness**2
@@ -304,8 +355,10 @@ def _optimize(
     skewness_loss_weight: float = 0.005,
     slicer_fn: Callable = lambda x: x,
 ):
+    # Initialize optimization parameters
     initial_guess = [start_scale_multiplier, start_skewness, start_mean_insert_size]
 
+    # Use the minimize function to find the optimal scale_multiplier
     result = minimize(
         _objective_function,
         initial_guess,
@@ -322,6 +375,7 @@ def _optimize(
         ),
     )
 
+    # The optimal parameters for the sample
     optimal_scale_multiplier, optimal_skewness, optimal_mean_insert_size = result.x
     optimal_params = {
         "scale_multiplier": optimal_scale_multiplier,
@@ -329,6 +383,7 @@ def _optimize(
         "mean_insert_size": optimal_mean_insert_size,
     }
 
+    # Use the optimal parameters to generate the best fitting distribution
     best_fitted_distribution = _calculate_mixture_distribution(
         bin_midpoints_=bin_midpoints_,
         coverages=coverages,
@@ -341,38 +396,40 @@ def _optimize(
         scale_multiplier=optimal_scale_multiplier,
     )
 
+    # Normalize to mean=1
     best_fitted_distribution /= np.nanmean(best_fitted_distribution)
 
     return best_fitted_distribution, optimal_params
 
 
+def _skewed_t_pdf(
+    bin_midpoints_: np.ndarray, df: int, loc: float, scale: float, skewness: float
+) -> np.ndarray:
+    """
+    Skewed Student's t probability density function.
+
+    As implemented by chatGPT4 with the note that it may not
+    be the most theoretically sound approach but should work
+    in practice for simple things like our case.
+    """
+    # Calculate the t-distribution PDF
+    t_dist_pdf = t.pdf(bin_midpoints_, df, loc, scale)
+
+    # Calculate the skewness weight
+    skewness_weight = 1 + erf(
+        (skewness * (bin_midpoints_ - loc)) / (scale * np.sqrt(2))
+    )
+
+    # Apply the skewness weight to the t-distribution PDF
+    skewed_pdf = t_dist_pdf * skewness_weight
+
+    # Normalize the skewed PDF
+    skewed_pdf /= np.trapz(skewed_pdf, bin_midpoints_)
+
+    return skewed_pdf
+
+
 def _calculate_inverse_skewness(
     bin_midpoints_: np.ndarray, skewness: float
 ) -> np.ndarray:
-    if abs(skewness) < 1e-9:
-        return np.ones_like(bin_midpoints_)
-    # Create a simple inverse-skewness weighting
-    weights = np.linspace(-1, 1, len(bin_midpoints_))
-    correction = 1.0 + skewness * weights
-    return correction / np.nanmean(correction)
-
-
-def _skewed_t_pdf(
-    bin_midpoints_: np.ndarray,
-    df: int,
-    loc: float,
-    scale: float,
-    skewness: float,
-) -> np.ndarray:
-    u = (bin_midpoints_ - loc) / scale
-    cdf = 0.5 * (1 + erf(skewness * u / np.sqrt(2)))
-    pdf = (
-        t.pdf(u, df=df)
-        * cdf
-        * (2 / scale)
-    )
-    return pdf
-
-
-
-
+    return bin_midpoints_ * skewness + np.mean(bin_midpoints_) * (1 - skewness) + 1
