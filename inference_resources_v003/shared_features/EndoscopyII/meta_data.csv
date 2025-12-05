@@ -1,0 +1,256 @@
+Sample ID,Cancer Status,Cancer Type,Subject ID
+EndoscopyII_0,Control,No Comorbidity-No Finding,EndoscopyII_0
+EndoscopyII_1,Control,No Comorbidity-No Finding,EndoscopyII_1
+EndoscopyII_2,Control,No Comorbidity-No Finding,EndoscopyII_2
+EndoscopyII_3,Control,Comorbidity-No Finding,EndoscopyII_3
+EndoscopyII_4,Control,No Comorbidity-No Finding,EndoscopyII_4
+EndoscopyII_5,Cancer,Rectal Cancer,EndoscopyII_5
+EndoscopyII_6,Cancer,Rectal Cancer,EndoscopyII_6
+EndoscopyII_7,Control,Comorbidity-No Finding,EndoscopyII_7
+EndoscopyII_8,Control,No Comorbidity-No Finding,EndoscopyII_8
+EndoscopyII_9,Control,No Comorbidity-No Finding,EndoscopyII_9
+EndoscopyII_10,Cancer,Rectal Cancer,EndoscopyII_10
+EndoscopyII_11,Cancer,Rectal Cancer,EndoscopyII_11
+EndoscopyII_12,Cancer,Colon Cancer,EndoscopyII_12
+EndoscopyII_13,Control,Comorbidity-No Finding,EndoscopyII_13
+EndoscopyII_14,Cancer,Colon Cancer,EndoscopyII_14
+EndoscopyII_15,Control,Comorbidity-No Finding,EndoscopyII_15
+EndoscopyII_16,Control,No Comorbidity-No Finding,EndoscopyII_16
+EndoscopyII_17,Control,Comorbidity-No Finding,EndoscopyII_17
+EndoscopyII_18,Control,No Comorbidity-No Finding,EndoscopyII_18
+EndoscopyII_19,Cancer,Colon Cancer,EndoscopyII_19
+EndoscopyII_20,Control,No Comorbidity-No Finding,EndoscopyII_20
+EndoscopyII_21,Cancer,Colon Cancer,EndoscopyII_21
+EndoscopyII_22,Control,Comorbidity-No Finding,EndoscopyII_22
+EndoscopyII_23,Control,Comorbidity-No Finding,EndoscopyII_23
+EndoscopyII_24,Cancer,Colon Cancer,EndoscopyII_24
+EndoscopyII_25,Control,Comorbidity-No Finding,EndoscopyII_25
+EndoscopyII_26,Cancer,Colon Cancer,EndoscopyII_26
+EndoscopyII_27,Control,Comorbidity-No Finding,EndoscopyII_27
+EndoscopyII_28,Cancer,Colon Cancer,EndoscopyII_28
+EndoscopyII_29,Cancer,Colon Cancer,EndoscopyII_29
+EndoscopyII_30,Control,Comorbidity-No Finding,EndoscopyII_30
+EndoscopyII_31,Cancer,Colon Cancer,EndoscopyII_31
+EndoscopyII_32,Cancer,Colon Cancer,EndoscopyII_32
+EndoscopyII_33,Control,No Comorbidity-No Finding,EndoscopyII_33
+EndoscopyII_34,Control,Comorbidity-No Finding,EndoscopyII_34
+EndoscopyII_35,Control,No Comorbidity-No Finding,EndoscopyII_35
+EndoscopyII_36,Cancer,Rectal Cancer,EndoscopyII_36
+EndoscopyII_37,Control,No Comorbidity-No Finding,EndoscopyII_37
+EndoscopyII_38,Control,Comorbidity-No Finding,EndoscopyII_38
+EndoscopyII_39,Cancer,Colon Cancer,EndoscopyII_39
+EndoscopyII_40,Control,Comorbidity-No Finding,EndoscopyII_40
+EndoscopyII_41,Cancer,Rectal Cancer,EndoscopyII_41
+EndoscopyII_42,Cancer,Rectal Cancer,EndoscopyII_42
+EndoscopyII_43,Control,Comorbidity-No Finding,EndoscopyII_43
+EndoscopyII_44,Control,No Comorbidity-No Finding,EndoscopyII_44
+EndoscopyII_45,Cancer,Rectal Cancer,EndoscopyII_45
+EndoscopyII_46,Control,No Comorbidity-No Finding,EndoscopyII_46
+EndoscopyII_47,Control,No Comorbidity-No Finding,EndoscopyII_47
+EndoscopyII_48,Control,No Comorbidity-No Finding,EndoscopyII_48
+EndoscopyII_49,Control,Comorbidity-No Finding,EndoscopyII_49
+EndoscopyII_50,Cancer,Colon Cancer,EndoscopyII_50
+EndoscopyII_51,Cancer,Colon Cancer,EndoscopyII_51
+EndoscopyII_52,Cancer,Rectal Cancer,EndoscopyII_52
+EndoscopyII_53,Cancer,Colon Cancer,EndoscopyII_53
+EndoscopyII_54,Control,Comorbidity-No Finding,EndoscopyII_54
+EndoscopyII_55,Control,No Comorbidity-No Finding,EndoscopyII_55
+EndoscopyII_56,Control,No Comorbidity-No Finding,EndoscopyII_56
+EndoscopyII_57,Cancer,Rectal Cancer,EndoscopyII_57
+EndoscopyII_58,Cancer,Colon Cancer,EndoscopyII_58
+EndoscopyII_59,Control,No Comorbidity-No Finding,EndoscopyII_59
+EndoscopyII_60,Cancer,Rectal Cancer,EndoscopyII_60
+EndoscopyII_61,Control,Comorbidity-No Finding,EndoscopyII_61
+EndoscopyII_62,Control,No Comorbidity-No Finding,EndoscopyII_62
+EndoscopyII_63,Cancer,Rectal Cancer,EndoscopyII_63
+EndoscopyII_64,Control,Comorbidity-No Finding,EndoscopyII_64
+EndoscopyII_65,Control,Comorbidity-No Finding,EndoscopyII_65
+EndoscopyII_66,Control,Comorbidity-No Finding,EndoscopyII_66
+EndoscopyII_67,Control,No Comorbidity-No Finding,EndoscopyII_67
+EndoscopyII_68,Cancer,Rectal Cancer,EndoscopyII_68
+EndoscopyII_69,Cancer,Rectal Cancer,EndoscopyII_69
+EndoscopyII_70,Cancer,Colon Cancer,EndoscopyII_70
+EndoscopyII_71,Cancer,Colon Cancer,EndoscopyII_71
+EndoscopyII_72,Control,Comorbidity-No Finding,EndoscopyII_72
+EndoscopyII_73,Cancer,Colon Cancer,EndoscopyII_73
+EndoscopyII_74,Cancer,Rectal Cancer,EndoscopyII_74
+EndoscopyII_75,Control,Comorbidity-No Finding,EndoscopyII_75
+EndoscopyII_76,Cancer,Rectal Cancer,EndoscopyII_76
+EndoscopyII_77,Control,Comorbidity-No Finding,EndoscopyII_77
+EndoscopyII_78,Cancer,Colon Cancer,EndoscopyII_78
+EndoscopyII_79,Control,Comorbidity-No Finding,EndoscopyII_79
+EndoscopyII_80,Control,No Comorbidity-No Finding,EndoscopyII_80
+EndoscopyII_81,Cancer,Rectal Cancer,EndoscopyII_81
+EndoscopyII_82,Control,No Comorbidity-No Finding,EndoscopyII_82
+EndoscopyII_83,Cancer,Rectal Cancer,EndoscopyII_83
+EndoscopyII_84,Control,No Comorbidity-No Finding,EndoscopyII_84
+EndoscopyII_85,Control,No Comorbidity-No Finding,EndoscopyII_85
+EndoscopyII_86,Control,Comorbidity-No Finding,EndoscopyII_86
+EndoscopyII_87,Cancer,Colon Cancer,EndoscopyII_87
+EndoscopyII_88,Cancer,Colon Cancer,EndoscopyII_88
+EndoscopyII_89,Cancer,Colon Cancer,EndoscopyII_89
+EndoscopyII_90,Cancer,Colon Cancer,EndoscopyII_90
+EndoscopyII_91,Cancer,Colon Cancer,EndoscopyII_91
+EndoscopyII_92,Control,Comorbidity-No Finding,EndoscopyII_92
+EndoscopyII_93,Cancer,Colon Cancer,EndoscopyII_93
+EndoscopyII_94,Cancer,Colon Cancer,EndoscopyII_94
+EndoscopyII_95,Cancer,Colon Cancer,EndoscopyII_95
+EndoscopyII_96,Control,Comorbidity-No Finding,EndoscopyII_96
+EndoscopyII_97,Cancer,Colon Cancer,EndoscopyII_97
+EndoscopyII_98,Control,Comorbidity-No Finding,EndoscopyII_98
+EndoscopyII_99,Cancer,Rectal Cancer,EndoscopyII_99
+EndoscopyII_100,Cancer,Colon Cancer,EndoscopyII_100
+EndoscopyII_101,Cancer,Rectal Cancer,EndoscopyII_101
+EndoscopyII_102,Cancer,Colon Cancer,EndoscopyII_102
+EndoscopyII_103,Control,Comorbidity-No Finding,EndoscopyII_103
+EndoscopyII_104,Control,No Comorbidity-No Finding,EndoscopyII_104
+EndoscopyII_105,Cancer,Rectal Cancer,EndoscopyII_105
+EndoscopyII_106,Control,No Comorbidity-No Finding,EndoscopyII_106
+EndoscopyII_107,Control,No Comorbidity-No Finding,EndoscopyII_107
+EndoscopyII_108,Control,Comorbidity-No Finding,EndoscopyII_108
+EndoscopyII_109,Cancer,Rectal Cancer,EndoscopyII_109
+EndoscopyII_110,Control,Comorbidity-No Finding,EndoscopyII_110
+EndoscopyII_111,Cancer,Colon Cancer,EndoscopyII_111
+EndoscopyII_112,Control,No Comorbidity-No Finding,EndoscopyII_112
+EndoscopyII_113,Cancer,Rectal Cancer,EndoscopyII_113
+EndoscopyII_114,Cancer,Rectal Cancer,EndoscopyII_114
+EndoscopyII_115,Control,No Comorbidity-No Finding,EndoscopyII_115
+EndoscopyII_116,Control,No Comorbidity-No Finding,EndoscopyII_116
+EndoscopyII_117,Control,No Comorbidity-No Finding,EndoscopyII_117
+EndoscopyII_118,Control,Comorbidity-No Finding,EndoscopyII_118
+EndoscopyII_119,Control,Comorbidity-No Finding,EndoscopyII_119
+EndoscopyII_120,Control,No Comorbidity-No Finding,EndoscopyII_120
+EndoscopyII_121,Cancer,Rectal Cancer,EndoscopyII_121
+EndoscopyII_122,Cancer,Rectal Cancer,EndoscopyII_122
+EndoscopyII_123,Control,Comorbidity-No Finding,EndoscopyII_123
+EndoscopyII_124,Cancer,Rectal Cancer,EndoscopyII_124
+EndoscopyII_125,Control,No Comorbidity-No Finding,EndoscopyII_125
+EndoscopyII_126,Control,Comorbidity-No Finding,EndoscopyII_126
+EndoscopyII_127,Control,No Comorbidity-No Finding,EndoscopyII_127
+EndoscopyII_128,Control,No Comorbidity-No Finding,EndoscopyII_128
+EndoscopyII_129,Control,No Comorbidity-No Finding,EndoscopyII_129
+EndoscopyII_130,Control,No Comorbidity-No Finding,EndoscopyII_130
+EndoscopyII_131,Control,No Comorbidity-No Finding,EndoscopyII_131
+EndoscopyII_132,Control,No Comorbidity-No Finding,EndoscopyII_132
+EndoscopyII_133,Cancer,Colon Cancer,EndoscopyII_133
+EndoscopyII_134,Cancer,Colon Cancer,EndoscopyII_134
+EndoscopyII_135,Control,Comorbidity-No Finding,EndoscopyII_135
+EndoscopyII_136,Cancer,Rectal Cancer,EndoscopyII_136
+EndoscopyII_137,Cancer,Rectal Cancer,EndoscopyII_137
+EndoscopyII_138,Control,No Comorbidity-No Finding,EndoscopyII_138
+EndoscopyII_139,Cancer,Rectal Cancer,EndoscopyII_139
+EndoscopyII_140,Control,Comorbidity-No Finding,EndoscopyII_140
+EndoscopyII_141,Cancer,Colon Cancer,EndoscopyII_141
+EndoscopyII_142,Control,No Comorbidity-No Finding,EndoscopyII_142
+EndoscopyII_143,Control,Comorbidity-No Finding,EndoscopyII_143
+EndoscopyII_144,Control,No Comorbidity-No Finding,EndoscopyII_144
+EndoscopyII_145,Control,Comorbidity-No Finding,EndoscopyII_145
+EndoscopyII_146,Cancer,Colon Cancer,EndoscopyII_146
+EndoscopyII_147,Cancer,Colon Cancer,EndoscopyII_147
+EndoscopyII_148,Control,No Comorbidity-No Finding,EndoscopyII_148
+EndoscopyII_149,Control,No Comorbidity-No Finding,EndoscopyII_149
+EndoscopyII_150,Control,No Comorbidity-No Finding,EndoscopyII_150
+EndoscopyII_151,Control,Comorbidity-No Finding,EndoscopyII_151
+EndoscopyII_152,Control,Comorbidity-No Finding,EndoscopyII_152
+EndoscopyII_153,Cancer,Colon Cancer,EndoscopyII_153
+EndoscopyII_154,Control,No Comorbidity-No Finding,EndoscopyII_154
+EndoscopyII_155,Cancer,Colon Cancer,EndoscopyII_155
+EndoscopyII_156,Cancer,Colon Cancer,EndoscopyII_156
+EndoscopyII_157,Control,No Comorbidity-No Finding,EndoscopyII_157
+EndoscopyII_158,Control,Comorbidity-No Finding,EndoscopyII_158
+EndoscopyII_159,Control,Comorbidity-No Finding,EndoscopyII_159
+EndoscopyII_160,Control,Comorbidity-No Finding,EndoscopyII_160
+EndoscopyII_161,Control,No Comorbidity-No Finding,EndoscopyII_161
+EndoscopyII_162,Control,Comorbidity-No Finding,EndoscopyII_162
+EndoscopyII_163,Cancer,Colon Cancer,EndoscopyII_163
+EndoscopyII_164,Control,No Comorbidity-No Finding,EndoscopyII_164
+EndoscopyII_165,Cancer,Colon Cancer,EndoscopyII_165
+EndoscopyII_166,Cancer,Colon Cancer,EndoscopyII_166
+EndoscopyII_167,Cancer,Rectal Cancer,EndoscopyII_167
+EndoscopyII_168,Cancer,Rectal Cancer,EndoscopyII_168
+EndoscopyII_169,Cancer,Colon Cancer,EndoscopyII_169
+EndoscopyII_170,Control,No Comorbidity-No Finding,EndoscopyII_170
+EndoscopyII_171,Control,Comorbidity-No Finding,EndoscopyII_171
+EndoscopyII_172,Cancer,Colon Cancer,EndoscopyII_172
+EndoscopyII_173,Control,Comorbidity-No Finding,EndoscopyII_173
+EndoscopyII_174,Control,Comorbidity-No Finding,EndoscopyII_174
+EndoscopyII_175,Control,Comorbidity-No Finding,EndoscopyII_175
+EndoscopyII_176,Control,Comorbidity-No Finding,EndoscopyII_176
+EndoscopyII_177,Cancer,Colon Cancer,EndoscopyII_177
+EndoscopyII_178,Control,No Comorbidity-No Finding,EndoscopyII_178
+EndoscopyII_179,Control,Comorbidity-No Finding,EndoscopyII_179
+EndoscopyII_180,Control,Comorbidity-No Finding,EndoscopyII_180
+EndoscopyII_181,Cancer,Rectal Cancer,EndoscopyII_181
+EndoscopyII_182,Control,No Comorbidity-No Finding,EndoscopyII_182
+EndoscopyII_183,Cancer,Colon Cancer,EndoscopyII_183
+EndoscopyII_184,Control,No Comorbidity-No Finding,EndoscopyII_184
+EndoscopyII_185,Control,Comorbidity-No Finding,EndoscopyII_185
+EndoscopyII_186,Control,Comorbidity-No Finding,EndoscopyII_186
+EndoscopyII_187,Cancer,Colon Cancer,EndoscopyII_187
+EndoscopyII_188,Control,Comorbidity-No Finding,EndoscopyII_188
+EndoscopyII_189,Cancer,Rectal Cancer,EndoscopyII_189
+EndoscopyII_190,Control,No Comorbidity-No Finding,EndoscopyII_190
+EndoscopyII_191,Cancer,Colon Cancer,EndoscopyII_191
+EndoscopyII_192,Cancer,Colon Cancer,EndoscopyII_192
+EndoscopyII_193,Control,No Comorbidity-No Finding,EndoscopyII_193
+EndoscopyII_194,Cancer,Rectal Cancer,EndoscopyII_194
+EndoscopyII_195,Control,No Comorbidity-No Finding,EndoscopyII_195
+EndoscopyII_196,Cancer,Rectal Cancer,EndoscopyII_196
+EndoscopyII_197,Cancer,Colon Cancer,EndoscopyII_197
+EndoscopyII_198,Cancer,Colon Cancer,EndoscopyII_198
+EndoscopyII_199,Cancer,Colon Cancer,EndoscopyII_199
+EndoscopyII_200,Cancer,Rectal Cancer,EndoscopyII_200
+EndoscopyII_201,Cancer,Colon Cancer,EndoscopyII_201
+EndoscopyII_202,Cancer,Colon Cancer,EndoscopyII_202
+EndoscopyII_203,Control,Comorbidity-No Finding,EndoscopyII_203
+EndoscopyII_204,Cancer,Colon Cancer,EndoscopyII_204
+EndoscopyII_205,Cancer,Rectal Cancer,EndoscopyII_205
+EndoscopyII_206,Cancer,Colon Cancer,EndoscopyII_206
+EndoscopyII_207,Control,Comorbidity-No Finding,EndoscopyII_207
+EndoscopyII_208,Control,Comorbidity-No Finding,EndoscopyII_208
+EndoscopyII_209,Cancer,Rectal Cancer,EndoscopyII_209
+EndoscopyII_210,Cancer,Colon Cancer,EndoscopyII_210
+EndoscopyII_211,Control,No Comorbidity-No Finding,EndoscopyII_211
+EndoscopyII_212,Control,No Comorbidity-No Finding,EndoscopyII_212
+EndoscopyII_213,Cancer,Colon Cancer,EndoscopyII_213
+EndoscopyII_214,Control,No Comorbidity-No Finding,EndoscopyII_214
+EndoscopyII_215,Control,Comorbidity-No Finding,EndoscopyII_215
+EndoscopyII_216,Cancer,Colon Cancer,EndoscopyII_216
+EndoscopyII_217,Control,No Comorbidity-No Finding,EndoscopyII_217
+EndoscopyII_218,Control,No Comorbidity-No Finding,EndoscopyII_218
+EndoscopyII_219,Control,No Comorbidity-No Finding,EndoscopyII_219
+EndoscopyII_220,Cancer,Colon Cancer,EndoscopyII_220
+EndoscopyII_221,Control,No Comorbidity-No Finding,EndoscopyII_221
+EndoscopyII_222,Cancer,Rectal Cancer,EndoscopyII_222
+EndoscopyII_223,Control,No Comorbidity-No Finding,EndoscopyII_223
+EndoscopyII_224,Control,No Comorbidity-No Finding,EndoscopyII_224
+EndoscopyII_225,Cancer,Rectal Cancer,EndoscopyII_225
+EndoscopyII_226,Cancer,Rectal Cancer,EndoscopyII_226
+EndoscopyII_227,Cancer,Rectal Cancer,EndoscopyII_227
+EndoscopyII_228,Cancer,Colon Cancer,EndoscopyII_228
+EndoscopyII_229,Control,Comorbidity-No Finding,EndoscopyII_229
+EndoscopyII_230,Control,No Comorbidity-No Finding,EndoscopyII_230
+EndoscopyII_231,Control,Comorbidity-No Finding,EndoscopyII_231
+EndoscopyII_232,Cancer,Colon Cancer,EndoscopyII_232
+EndoscopyII_233,Cancer,Colon Cancer,EndoscopyII_233
+EndoscopyII_234,Control,No Comorbidity-No Finding,EndoscopyII_234
+EndoscopyII_235,Cancer,Colon Cancer,EndoscopyII_235
+EndoscopyII_236,Control,Comorbidity-No Finding,EndoscopyII_236
+EndoscopyII_237,Control,No Comorbidity-No Finding,EndoscopyII_237
+EndoscopyII_238,Cancer,Colon Cancer,EndoscopyII_238
+EndoscopyII_239,Control,No Comorbidity-No Finding,EndoscopyII_239
+EndoscopyII_240,Control,Comorbidity-No Finding,EndoscopyII_240
+EndoscopyII_241,Cancer,Colon Cancer,EndoscopyII_241
+EndoscopyII_242,Control,No Comorbidity-No Finding,EndoscopyII_242
+EndoscopyII_243,Control,Comorbidity-No Finding,EndoscopyII_243
+EndoscopyII_244,Control,Comorbidity-No Finding,EndoscopyII_244
+EndoscopyII_245,Cancer,Rectal Cancer,EndoscopyII_245
+EndoscopyII_246,Control,No Comorbidity-No Finding,EndoscopyII_246
+EndoscopyII_247,Cancer,Colon Cancer,EndoscopyII_247
+EndoscopyII_248,Cancer,Colon Cancer,EndoscopyII_248
+EndoscopyII_249,Cancer,Colon Cancer,EndoscopyII_249
+EndoscopyII_250,Control,No Comorbidity-No Finding,EndoscopyII_250
+EndoscopyII_251,Cancer,Colon Cancer,EndoscopyII_251
+EndoscopyII_252,Control,No Comorbidity-No Finding,EndoscopyII_252
+EndoscopyII_253,Control,Comorbidity-No Finding,EndoscopyII_253
+EndoscopyII_254,Control,Comorbidity-No Finding,EndoscopyII_254

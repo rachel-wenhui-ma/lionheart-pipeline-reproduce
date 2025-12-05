@@ -1,0 +1,475 @@
+Sample ID,Cancer Status,Cancer Type,Subject ID
+Cristiano_0,Control,Healthy,Cristiano_0
+Cristiano_1,Control,Healthy,Cristiano_1
+Cristiano_2,Control,Healthy,Cristiano_2
+Cristiano_3,Control,Healthy,Cristiano_3
+Cristiano_4,Control,Healthy,Cristiano_4
+Cristiano_5,Cancer,Colorectal Cancer,Cristiano_5
+Cristiano_6,Cancer,Lung Cancer,Cristiano_6
+Cristiano_7,Control,Healthy,Cristiano_7
+Cristiano_8,Control,Healthy,Cristiano_8
+Cristiano_9,Cancer,Bile Duct Cancer,Cristiano_9
+Cristiano_10,Control,Healthy,Cristiano_10
+Cristiano_11,Cancer,Pancreatic Cancer,Cristiano_11
+Cristiano_12,Control,Healthy,Cristiano_12
+Cristiano_13,Cancer,Lung Cancer,Cristiano_13
+Cristiano_14,Control,Healthy,Cristiano_14
+Cristiano_15,Control,Healthy,Cristiano_15
+Cristiano_16,Control,Healthy,Cristiano_16
+Cristiano_17,Control,Healthy,Cristiano_17
+Cristiano_18,Control,Healthy,Cristiano_18
+Cristiano_19,Control,Healthy,Cristiano_19
+Cristiano_20,Cancer,Pancreatic Cancer,Cristiano_20
+Cristiano_21,Control,Healthy,Cristiano_21
+Cristiano_22,Cancer,Breast Cancer,Cristiano_22
+Cristiano_23,Cancer,Gastric Cancer,Cristiano_23
+Cristiano_24,Cancer,Pancreatic Cancer,Cristiano_24
+Cristiano_25,Cancer,Bile Duct Cancer,Cristiano_25
+Cristiano_26,Control,Healthy,Cristiano_26
+Cristiano_27,Control,Healthy,Cristiano_27
+Cristiano_28,Control,Healthy,Cristiano_28
+Cristiano_29,Control,Healthy,Cristiano_29
+Cristiano_30,Control,Healthy,Cristiano_30
+Cristiano_31,Cancer,Breast Cancer,Cristiano_31
+Cristiano_32,Cancer,Breast Cancer,Cristiano_32
+Cristiano_33,Cancer,Breast Cancer,Cristiano_33
+Cristiano_34,Cancer,Breast Cancer,Cristiano_34
+Cristiano_35,Control,Healthy,Cristiano_35
+Cristiano_36,Cancer,Gastric Cancer,Cristiano_36
+Cristiano_37,Control,Healthy,Cristiano_37
+Cristiano_38,Control,Healthy,Cristiano_38
+Cristiano_39,Cancer,Ovarian Cancer,Cristiano_39
+Cristiano_40,Cancer,Bile Duct Cancer,Cristiano_40
+Cristiano_41,Control,Healthy,Cristiano_41
+Cristiano_42,Cancer,Bile Duct Cancer,Cristiano_42
+Cristiano_43,Cancer,Colorectal Cancer,Cristiano_43
+Cristiano_44,Cancer,Pancreatic Cancer,Cristiano_44
+Cristiano_45,Cancer,Lung Cancer,Cristiano_45
+Cristiano_46,Cancer,Breast Cancer,Cristiano_46
+Cristiano_47,Control,Healthy,Cristiano_47
+Cristiano_48,Cancer,Gastric Cancer,Cristiano_48
+Cristiano_49,Control,Healthy,Cristiano_49
+Cristiano_50,Control,Healthy,Cristiano_50
+Cristiano_51,Cancer,Gastric Cancer,Cristiano_51
+Cristiano_52,Cancer,Ovarian Cancer,Cristiano_52
+Cristiano_53,Control,Healthy,Cristiano_53
+Cristiano_54,Control,Healthy,Cristiano_54
+Cristiano_55,Cancer,Bile Duct Cancer,Cristiano_55
+Cristiano_56,Control,Healthy,Cristiano_56
+Cristiano_57,Control,Healthy,Cristiano_57
+Cristiano_58,Cancer,Pancreatic Cancer,Cristiano_58
+Cristiano_59,Cancer,Breast Cancer,Cristiano_59
+Cristiano_60,Cancer,Breast Cancer,Cristiano_60
+Cristiano_61,Control,Healthy,Cristiano_61
+Cristiano_62,Cancer,Breast Cancer,Cristiano_62
+Cristiano_63,Cancer,Lung Cancer,Cristiano_63
+Cristiano_64,Cancer,Pancreatic Cancer,Cristiano_64
+Cristiano_65,Control,Healthy,Cristiano_65
+Cristiano_66,Control,Healthy,Cristiano_66
+Cristiano_67,Control,Healthy,Cristiano_67
+Cristiano_68,Cancer,Ovarian Cancer,Cristiano_68
+Cristiano_69,Cancer,Bile Duct Cancer,Cristiano_69
+Cristiano_70,Control,Healthy,Cristiano_70
+Cristiano_71,Control,Healthy,Cristiano_71
+Cristiano_72,Cancer,Gastric Cancer,Cristiano_72
+Cristiano_73,Control,Healthy,Cristiano_73
+Cristiano_74,Control,Healthy,Cristiano_74
+Cristiano_75,Cancer,Breast Cancer,Cristiano_75
+Cristiano_76,Control,Healthy,Cristiano_76
+Cristiano_77,Cancer,Breast Cancer,Cristiano_77
+Cristiano_78,Control,Healthy,Cristiano_78
+Cristiano_79,Cancer,Breast Cancer,Cristiano_79
+Cristiano_80,Control,Healthy,Cristiano_80
+Cristiano_81,Cancer,Breast Cancer,Cristiano_81
+Cristiano_82,Control,Healthy,Cristiano_82
+Cristiano_83,Control,Healthy,Cristiano_83
+Cristiano_84,Control,Healthy,Cristiano_84
+Cristiano_85,Control,Healthy,Cristiano_85
+Cristiano_86,Cancer,Breast Cancer,Cristiano_86
+Cristiano_87,Cancer,Gastric Cancer,Cristiano_87
+Cristiano_88,Cancer,Pancreatic Cancer,Cristiano_88
+Cristiano_89,Control,Healthy,Cristiano_89
+Cristiano_90,Cancer,Colorectal Cancer,Cristiano_90
+Cristiano_91,Control,Healthy,Cristiano_91
+Cristiano_92,Cancer,Colorectal Cancer,Cristiano_92
+Cristiano_93,Cancer,Breast Cancer,Cristiano_93
+Cristiano_94,Cancer,Colorectal Cancer,Cristiano_94
+Cristiano_95,Control,Healthy,Cristiano_95
+Cristiano_96,Cancer,Bile Duct Cancer,Cristiano_96
+Cristiano_97,Cancer,Ovarian Cancer,Cristiano_97
+Cristiano_98,Cancer,Ovarian Cancer,Cristiano_98
+Cristiano_99,Control,Healthy,Cristiano_99
+Cristiano_100,Control,Healthy,Cristiano_100
+Cristiano_101,Control,Healthy,Cristiano_101
+Cristiano_102,Cancer,Gastric Cancer,Cristiano_102
+Cristiano_103,Cancer,Breast Cancer,Cristiano_103
+Cristiano_104,Cancer,Breast Cancer,Cristiano_104
+Cristiano_105,Control,Healthy,Cristiano_105
+Cristiano_106,Cancer,Ovarian Cancer,Cristiano_106
+Cristiano_107,Cancer,Ovarian Cancer,Cristiano_107
+Cristiano_108,Cancer,Breast Cancer,Cristiano_108
+Cristiano_109,Cancer,Lung Cancer,Cristiano_109
+Cristiano_110,Cancer,Lung Cancer,Cristiano_110
+Cristiano_111,Control,Healthy,Cristiano_111
+Cristiano_112,Cancer,Breast Cancer,Cristiano_112
+Cristiano_113,Control,Healthy,Cristiano_113
+Cristiano_114,Control,Healthy,Cristiano_114
+Cristiano_115,Control,Healthy,Cristiano_115
+Cristiano_116,Cancer,Pancreatic Cancer,Cristiano_116
+Cristiano_117,Control,Healthy,Cristiano_117
+Cristiano_118,Control,Healthy,Cristiano_118
+Cristiano_119,Control,Healthy,Cristiano_119
+Cristiano_120,Control,Healthy,Cristiano_120
+Cristiano_121,Control,Healthy,Cristiano_121
+Cristiano_122,Control,Healthy,Cristiano_122
+Cristiano_123,Control,Healthy,Cristiano_123
+Cristiano_124,Control,Healthy,Cristiano_124
+Cristiano_125,Cancer,Breast Cancer,Cristiano_125
+Cristiano_126,Cancer,Gastric Cancer,Cristiano_126
+Cristiano_127,Control,Healthy,Cristiano_127
+Cristiano_128,Control,Healthy,Cristiano_128
+Cristiano_129,Control,Healthy,Cristiano_129
+Cristiano_130,Control,Healthy,Cristiano_130
+Cristiano_131,Cancer,Breast Cancer,Cristiano_131
+Cristiano_132,Cancer,Pancreatic Cancer,Cristiano_132
+Cristiano_133,Cancer,Lung Cancer,Cristiano_133
+Cristiano_134,Cancer,Lung Cancer,Cristiano_134
+Cristiano_135,Control,Healthy,Cristiano_135
+Cristiano_136,Cancer,Gastric Cancer,Cristiano_136
+Cristiano_137,Cancer,Gastric Cancer,Cristiano_137
+Cristiano_138,Cancer,Gastric Cancer,Cristiano_138
+Cristiano_139,Cancer,Lung Cancer,Cristiano_139
+Cristiano_140,Control,Healthy,Cristiano_140
+Cristiano_141,Cancer,Ovarian Cancer,Cristiano_141
+Cristiano_142,Control,Healthy,Cristiano_142
+Cristiano_143,Cancer,Pancreatic Cancer,Cristiano_143
+Cristiano_144,Control,Healthy,Cristiano_144
+Cristiano_145,Control,Healthy,Cristiano_145
+Cristiano_146,Control,Healthy,Cristiano_146
+Cristiano_147,Control,Healthy,Cristiano_147
+Cristiano_148,Control,Healthy,Cristiano_148
+Cristiano_149,Control,Healthy,Cristiano_149
+Cristiano_150,Control,Healthy,Cristiano_150
+Cristiano_151,Control,Healthy,Cristiano_151
+Cristiano_152,Control,Healthy,Cristiano_152
+Cristiano_153,Cancer,Gastric Cancer,Cristiano_153
+Cristiano_154,Cancer,Pancreatic Cancer,Cristiano_154
+Cristiano_155,Control,Healthy,Cristiano_155
+Cristiano_156,Control,Healthy,Cristiano_156
+Cristiano_157,Cancer,Pancreatic Cancer,Cristiano_157
+Cristiano_158,Cancer,Pancreatic Cancer,Cristiano_158
+Cristiano_159,Cancer,Lung Cancer,Cristiano_159
+Cristiano_160,Control,Healthy,Cristiano_160
+Cristiano_161,Control,Healthy,Cristiano_161
+Cristiano_162,Control,Healthy,Cristiano_162
+Cristiano_163,Control,Healthy,Cristiano_163
+Cristiano_164,Control,Healthy,Cristiano_164
+Cristiano_165,Control,Healthy,Cristiano_165
+Cristiano_166,Control,Healthy,Cristiano_166
+Cristiano_167,Cancer,Breast Cancer,Cristiano_167
+Cristiano_168,Cancer,Gastric Cancer,Cristiano_168
+Cristiano_169,Cancer,Breast Cancer,Cristiano_169
+Cristiano_170,Cancer,Pancreatic Cancer,Cristiano_170
+Cristiano_171,Cancer,Lung Cancer,Cristiano_171
+Cristiano_172,Cancer,Ovarian Cancer,Cristiano_172
+Cristiano_173,Cancer,Pancreatic Cancer,Cristiano_173
+Cristiano_174,Control,Healthy,Cristiano_174
+Cristiano_175,Control,Healthy,Cristiano_175
+Cristiano_176,Control,Healthy,Cristiano_176
+Cristiano_177,Cancer,Lung Cancer,Cristiano_177
+Cristiano_178,Cancer,Breast Cancer,Cristiano_178
+Cristiano_179,Cancer,Ovarian Cancer,Cristiano_179
+Cristiano_180,Control,Healthy,Cristiano_180
+Cristiano_181,Control,Healthy,Cristiano_181
+Cristiano_182,Control,Healthy,Cristiano_182
+Cristiano_183,Cancer,Gastric Cancer,Cristiano_183
+Cristiano_184,Control,Healthy,Cristiano_184
+Cristiano_185,Cancer,Bile Duct Cancer,Cristiano_185
+Cristiano_186,Cancer,Lung Cancer,Cristiano_186
+Cristiano_187,Cancer,Bile Duct Cancer,Cristiano_187
+Cristiano_188,Cancer,Ovarian Cancer,Cristiano_188
+Cristiano_189,Cancer,Breast Cancer,Cristiano_189
+Cristiano_190,Control,Healthy,Cristiano_190
+Cristiano_191,Cancer,Pancreatic Cancer,Cristiano_191
+Cristiano_192,Cancer,Gastric Cancer,Cristiano_192
+Cristiano_193,Control,Healthy,Cristiano_193
+Cristiano_194,Cancer,Lung Cancer,Cristiano_194
+Cristiano_195,Control,Healthy,Cristiano_195
+Cristiano_196,Cancer,Gastric Cancer,Cristiano_196
+Cristiano_197,Control,Healthy,Cristiano_197
+Cristiano_198,Control,Healthy,Cristiano_198
+Cristiano_199,Cancer,Lung Cancer,Cristiano_199
+Cristiano_200,Cancer,Colorectal Cancer,Cristiano_200
+Cristiano_201,Control,Healthy,Cristiano_201
+Cristiano_202,Cancer,Gastric Cancer,Cristiano_202
+Cristiano_203,Cancer,Breast Cancer,Cristiano_203
+Cristiano_204,Cancer,Bile Duct Cancer,Cristiano_204
+Cristiano_205,Cancer,Colorectal Cancer,Cristiano_205
+Cristiano_206,Cancer,Lung Cancer,Cristiano_206
+Cristiano_207,Cancer,Ovarian Cancer,Cristiano_207
+Cristiano_208,Cancer,Pancreatic Cancer,Cristiano_208
+Cristiano_209,Control,Healthy,Cristiano_209
+Cristiano_210,Cancer,Lung Cancer,Cristiano_210
+Cristiano_211,Cancer,Lung Cancer,Cristiano_211
+Cristiano_212,Cancer,Gastric Cancer,Cristiano_212
+Cristiano_213,Control,Healthy,Cristiano_213
+Cristiano_214,Control,Healthy,Cristiano_214
+Cristiano_215,Cancer,Lung Cancer,Cristiano_215
+Cristiano_216,Control,Healthy,Cristiano_216
+Cristiano_217,Cancer,Bile Duct Cancer,Cristiano_217
+Cristiano_218,Cancer,Lung Cancer,Cristiano_218
+Cristiano_219,Control,Healthy,Cristiano_219
+Cristiano_220,Control,Healthy,Cristiano_220
+Cristiano_221,Cancer,Bile Duct Cancer,Cristiano_221
+Cristiano_222,Cancer,Bile Duct Cancer,Cristiano_222
+Cristiano_223,Control,Healthy,Cristiano_223
+Cristiano_224,Control,Healthy,Cristiano_224
+Cristiano_225,Control,Healthy,Cristiano_225
+Cristiano_226,Cancer,Bile Duct Cancer,Cristiano_226
+Cristiano_227,Control,Healthy,Cristiano_227
+Cristiano_228,Cancer,Lung Cancer,Cristiano_228
+Cristiano_229,Cancer,Ovarian Cancer,Cristiano_229
+Cristiano_230,Cancer,Pancreatic Cancer,Cristiano_230
+Cristiano_231,Cancer,Pancreatic Cancer,Cristiano_231
+Cristiano_232,Control,Healthy,Cristiano_232
+Cristiano_233,Cancer,Pancreatic Cancer,Cristiano_233
+Cristiano_234,Cancer,Gastric Cancer,Cristiano_234
+Cristiano_235,Cancer,Lung Cancer,Cristiano_235
+Cristiano_236,Control,Healthy,Cristiano_236
+Cristiano_237,Cancer,Ovarian Cancer,Cristiano_237
+Cristiano_238,Control,Healthy,Cristiano_238
+Cristiano_239,Cancer,Lung Cancer,Cristiano_239
+Cristiano_240,Cancer,Colorectal Cancer,Cristiano_240
+Cristiano_241,Cancer,Breast Cancer,Cristiano_241
+Cristiano_242,Cancer,Lung Cancer,Cristiano_242
+Cristiano_243,Control,Healthy,Cristiano_243
+Cristiano_244,Control,Healthy,Cristiano_244
+Cristiano_245,Control,Healthy,Cristiano_245
+Cristiano_246,Cancer,Ovarian Cancer,Cristiano_246
+Cristiano_247,Control,Healthy,Cristiano_247
+Cristiano_248,Cancer,Breast Cancer,Cristiano_248
+Cristiano_249,Control,Healthy,Cristiano_249
+Cristiano_250,Cancer,Lung Cancer,Cristiano_250
+Cristiano_251,Control,Healthy,Cristiano_251
+Cristiano_252,Control,Healthy,Cristiano_252
+Cristiano_253,Cancer,Gastric Cancer,Cristiano_253
+Cristiano_254,Control,Healthy,Cristiano_254
+Cristiano_255,Cancer,Breast Cancer,Cristiano_255
+Cristiano_256,Control,Healthy,Cristiano_256
+Cristiano_257,Control,Healthy,Cristiano_257
+Cristiano_258,Control,Healthy,Cristiano_258
+Cristiano_259,Cancer,Colorectal Cancer,Cristiano_259
+Cristiano_260,Cancer,Breast Cancer,Cristiano_260
+Cristiano_261,Control,Healthy,Cristiano_261
+Cristiano_262,Cancer,Pancreatic Cancer,Cristiano_262
+Cristiano_263,Control,Healthy,Cristiano_263
+Cristiano_264,Cancer,Lung Cancer,Cristiano_264
+Cristiano_265,Cancer,Breast Cancer,Cristiano_265
+Cristiano_266,Control,Healthy,Cristiano_266
+Cristiano_267,Control,Healthy,Cristiano_267
+Cristiano_268,Cancer,Bile Duct Cancer,Cristiano_268
+Cristiano_269,Control,Healthy,Cristiano_269
+Cristiano_270,Cancer,Colorectal Cancer,Cristiano_270
+Cristiano_271,Cancer,Colorectal Cancer,Cristiano_271
+Cristiano_272,Control,Healthy,Cristiano_272
+Cristiano_273,Control,Healthy,Cristiano_273
+Cristiano_274,Cancer,Gastric Cancer,Cristiano_274
+Cristiano_275,Cancer,Breast Cancer,Cristiano_275
+Cristiano_276,Cancer,Breast Cancer,Cristiano_276
+Cristiano_277,Control,Healthy,Cristiano_277
+Cristiano_278,Cancer,Pancreatic Cancer,Cristiano_278
+Cristiano_279,Cancer,Pancreatic Cancer,Cristiano_279
+Cristiano_280,Control,Healthy,Cristiano_280
+Cristiano_281,Cancer,Colorectal Cancer,Cristiano_281
+Cristiano_282,Control,Healthy,Cristiano_282
+Cristiano_283,Cancer,Pancreatic Cancer,Cristiano_283
+Cristiano_284,Control,Healthy,Cristiano_284
+Cristiano_285,Control,Healthy,Cristiano_285
+Cristiano_286,Control,Healthy,Cristiano_286
+Cristiano_287,Control,Healthy,Cristiano_287
+Cristiano_288,Cancer,Lung Cancer,Cristiano_288
+Cristiano_289,Control,Healthy,Cristiano_289
+Cristiano_290,Control,Healthy,Cristiano_290
+Cristiano_291,Cancer,Breast Cancer,Cristiano_291
+Cristiano_292,Cancer,Gastric Cancer,Cristiano_292
+Cristiano_293,Control,Healthy,Cristiano_293
+Cristiano_294,Control,Healthy,Cristiano_294
+Cristiano_295,Cancer,Gastric Cancer,Cristiano_295
+Cristiano_296,Control,Healthy,Cristiano_296
+Cristiano_297,Cancer,Pancreatic Cancer,Cristiano_297
+Cristiano_298,Control,Healthy,Cristiano_298
+Cristiano_299,Control,Healthy,Cristiano_299
+Cristiano_300,Control,Healthy,Cristiano_300
+Cristiano_301,Control,Healthy,Cristiano_301
+Cristiano_302,Control,Healthy,Cristiano_302
+Cristiano_303,Cancer,Ovarian Cancer,Cristiano_303
+Cristiano_304,Control,Healthy,Cristiano_304
+Cristiano_305,Control,Healthy,Cristiano_305
+Cristiano_306,Cancer,Bile Duct Cancer,Cristiano_306
+Cristiano_307,Control,Healthy,Cristiano_307
+Cristiano_308,Control,Healthy,Cristiano_308
+Cristiano_309,Cancer,Pancreatic Cancer,Cristiano_309
+Cristiano_310,Cancer,Breast Cancer,Cristiano_310
+Cristiano_311,Control,Healthy,Cristiano_311
+Cristiano_312,Cancer,Breast Cancer,Cristiano_312
+Cristiano_313,Cancer,Lung Cancer,Cristiano_313
+Cristiano_314,Control,Healthy,Cristiano_314
+Cristiano_315,Control,Healthy,Cristiano_315
+Cristiano_316,Control,Healthy,Cristiano_316
+Cristiano_317,Control,Healthy,Cristiano_317
+Cristiano_318,Cancer,Bile Duct Cancer,Cristiano_318
+Cristiano_319,Control,Healthy,Cristiano_319
+Cristiano_320,Cancer,Ovarian Cancer,Cristiano_320
+Cristiano_321,Cancer,Ovarian Cancer,Cristiano_321
+Cristiano_322,Control,Healthy,Cristiano_322
+Cristiano_323,Cancer,Ovarian Cancer,Cristiano_323
+Cristiano_324,Control,Healthy,Cristiano_324
+Cristiano_325,Cancer,Ovarian Cancer,Cristiano_325
+Cristiano_326,Control,Healthy,Cristiano_326
+Cristiano_327,Control,Healthy,Cristiano_327
+Cristiano_328,Control,Healthy,Cristiano_328
+Cristiano_329,Cancer,Breast Cancer,Cristiano_329
+Cristiano_330,Cancer,Bile Duct Cancer,Cristiano_330
+Cristiano_331,Cancer,Breast Cancer,Cristiano_331
+Cristiano_332,Control,Healthy,Cristiano_332
+Cristiano_333,Control,Healthy,Cristiano_333
+Cristiano_334,Cancer,Colorectal Cancer,Cristiano_334
+Cristiano_335,Control,Healthy,Cristiano_335
+Cristiano_336,Cancer,Ovarian Cancer,Cristiano_336
+Cristiano_337,Control,Healthy,Cristiano_337
+Cristiano_338,Control,Healthy,Cristiano_338
+Cristiano_339,Control,Healthy,Cristiano_339
+Cristiano_340,Control,Healthy,Cristiano_340
+Cristiano_341,Cancer,Lung Cancer,Cristiano_341
+Cristiano_342,Control,Healthy,Cristiano_342
+Cristiano_343,Control,Healthy,Cristiano_343
+Cristiano_344,Cancer,Gastric Cancer,Cristiano_344
+Cristiano_345,Control,Healthy,Cristiano_345
+Cristiano_346,Cancer,Pancreatic Cancer,Cristiano_346
+Cristiano_347,Control,Healthy,Cristiano_347
+Cristiano_348,Cancer,Colorectal Cancer,Cristiano_348
+Cristiano_349,Control,Healthy,Cristiano_349
+Cristiano_350,Cancer,Breast Cancer,Cristiano_350
+Cristiano_351,Control,Healthy,Cristiano_351
+Cristiano_352,Control,Healthy,Cristiano_352
+Cristiano_353,Cancer,Lung Cancer,Cristiano_353
+Cristiano_354,Cancer,Breast Cancer,Cristiano_354
+Cristiano_355,Cancer,Colorectal Cancer,Cristiano_355
+Cristiano_356,Cancer,Pancreatic Cancer,Cristiano_356
+Cristiano_357,Cancer,Breast Cancer,Cristiano_357
+Cristiano_358,Cancer,Lung Cancer,Cristiano_358
+Cristiano_359,Control,Healthy,Cristiano_359
+Cristiano_360,Control,Healthy,Cristiano_360
+Cristiano_361,Control,Healthy,Cristiano_361
+Cristiano_362,Control,Healthy,Cristiano_362
+Cristiano_363,Control,Healthy,Cristiano_363
+Cristiano_364,Cancer,Breast Cancer,Cristiano_364
+Cristiano_365,Control,Healthy,Cristiano_365
+Cristiano_366,Cancer,Ovarian Cancer,Cristiano_366
+Cristiano_367,Control,Healthy,Cristiano_367
+Cristiano_368,Cancer,Bile Duct Cancer,Cristiano_368
+Cristiano_369,Control,Healthy,Cristiano_369
+Cristiano_370,Cancer,Colorectal Cancer,Cristiano_370
+Cristiano_371,Control,Healthy,Cristiano_371
+Cristiano_372,Control,Healthy,Cristiano_372
+Cristiano_373,Cancer,Colorectal Cancer,Cristiano_373
+Cristiano_374,Control,Healthy,Cristiano_374
+Cristiano_375,Cancer,Breast Cancer,Cristiano_375
+Cristiano_376,Control,Healthy,Cristiano_376
+Cristiano_377,Control,Healthy,Cristiano_377
+Cristiano_378,Control,Healthy,Cristiano_378
+Cristiano_379,Cancer,Ovarian Cancer,Cristiano_379
+Cristiano_380,Cancer,Pancreatic Cancer,Cristiano_380
+Cristiano_381,Cancer,Lung Cancer,Cristiano_381
+Cristiano_382,Control,Healthy,Cristiano_382
+Cristiano_383,Cancer,Pancreatic Cancer,Cristiano_383
+Cristiano_384,Control,Healthy,Cristiano_384
+Cristiano_385,Control,Healthy,Cristiano_385
+Cristiano_386,Control,Healthy,Cristiano_386
+Cristiano_387,Control,Healthy,Cristiano_387
+Cristiano_388,Control,Healthy,Cristiano_388
+Cristiano_389,Control,Healthy,Cristiano_389
+Cristiano_390,Control,Healthy,Cristiano_390
+Cristiano_391,Control,Healthy,Cristiano_391
+Cristiano_392,Cancer,Lung Cancer,Cristiano_392
+Cristiano_393,Cancer,Breast Cancer,Cristiano_393
+Cristiano_394,Cancer,Ovarian Cancer,Cristiano_394
+Cristiano_395,Control,Healthy,Cristiano_395
+Cristiano_396,Cancer,Breast Cancer,Cristiano_396
+Cristiano_397,Control,Healthy,Cristiano_397
+Cristiano_398,Cancer,Pancreatic Cancer,Cristiano_398
+Cristiano_399,Control,Healthy,Cristiano_399
+Cristiano_400,Cancer,Bile Duct Cancer,Cristiano_400
+Cristiano_401,Cancer,Breast Cancer,Cristiano_401
+Cristiano_402,Cancer,Colorectal Cancer,Cristiano_402
+Cristiano_403,Cancer,Breast Cancer,Cristiano_403
+Cristiano_404,Cancer,Lung Cancer,Cristiano_404
+Cristiano_405,Control,Healthy,Cristiano_405
+Cristiano_406,Control,Healthy,Cristiano_406
+Cristiano_407,Cancer,Bile Duct Cancer,Cristiano_407
+Cristiano_408,Cancer,Lung Cancer,Cristiano_408
+Cristiano_409,Control,Healthy,Cristiano_409
+Cristiano_410,Control,Healthy,Cristiano_410
+Cristiano_411,Cancer,Colorectal Cancer,Cristiano_411
+Cristiano_412,Control,Healthy,Cristiano_412
+Cristiano_413,Control,Healthy,Cristiano_413
+Cristiano_414,Control,Healthy,Cristiano_414
+Cristiano_415,Cancer,Colorectal Cancer,Cristiano_415
+Cristiano_416,Cancer,Breast Cancer,Cristiano_416
+Cristiano_417,Control,Healthy,Cristiano_417
+Cristiano_418,Cancer,Ovarian Cancer,Cristiano_418
+Cristiano_419,Control,Healthy,Cristiano_419
+Cristiano_420,Control,Healthy,Cristiano_420
+Cristiano_421,Control,Healthy,Cristiano_421
+Cristiano_422,Cancer,Breast Cancer,Cristiano_422
+Cristiano_423,Control,Healthy,Cristiano_423
+Cristiano_424,Control,Healthy,Cristiano_424
+Cristiano_425,Control,Healthy,Cristiano_425
+Cristiano_426,Control,Healthy,Cristiano_426
+Cristiano_427,Control,Healthy,Cristiano_427
+Cristiano_428,Control,Healthy,Cristiano_428
+Cristiano_429,Control,Healthy,Cristiano_429
+Cristiano_430,Control,Healthy,Cristiano_430
+Cristiano_431,Control,Healthy,Cristiano_431
+Cristiano_432,Cancer,Breast Cancer,Cristiano_432
+Cristiano_433,Cancer,Colorectal Cancer,Cristiano_433
+Cristiano_434,Cancer,Colorectal Cancer,Cristiano_434
+Cristiano_435,Cancer,Bile Duct Cancer,Cristiano_435
+Cristiano_436,Control,Healthy,Cristiano_436
+Cristiano_437,Cancer,Gastric Cancer,Cristiano_437
+Cristiano_438,Control,Healthy,Cristiano_438
+Cristiano_439,Control,Healthy,Cristiano_439
+Cristiano_440,Control,Healthy,Cristiano_440
+Cristiano_441,Cancer,Pancreatic Cancer,Cristiano_441
+Cristiano_442,Cancer,Breast Cancer,Cristiano_442
+Cristiano_443,Control,Healthy,Cristiano_443
+Cristiano_444,Control,Healthy,Cristiano_444
+Cristiano_445,Control,Healthy,Cristiano_445
+Cristiano_446,Control,Healthy,Cristiano_446
+Cristiano_447,Cancer,Ovarian Cancer,Cristiano_447
+Cristiano_448,Cancer,Colorectal Cancer,Cristiano_448
+Cristiano_449,Cancer,Colorectal Cancer,Cristiano_449
+Cristiano_450,Cancer,Breast Cancer,Cristiano_450
+Cristiano_451,Cancer,Pancreatic Cancer,Cristiano_451
+Cristiano_452,Cancer,Ovarian Cancer,Cristiano_452
+Cristiano_453,Control,Healthy,Cristiano_453
+Cristiano_454,Cancer,Breast Cancer,Cristiano_454
+Cristiano_455,Control,Healthy,Cristiano_455
+Cristiano_456,Cancer,Colorectal Cancer,Cristiano_456
+Cristiano_457,Control,Healthy,Cristiano_457
+Cristiano_458,Cancer,Bile Duct Cancer,Cristiano_458
+Cristiano_459,Control,Healthy,Cristiano_459
+Cristiano_460,Cancer,Pancreatic Cancer,Cristiano_460
+Cristiano_461,Control,Healthy,Cristiano_461
+Cristiano_462,Control,Healthy,Cristiano_462
+Cristiano_463,Control,Healthy,Cristiano_463
+Cristiano_464,Cancer,Ovarian Cancer,Cristiano_464
+Cristiano_465,Control,Healthy,Cristiano_465
+Cristiano_466,Cancer,Bile Duct Cancer,Cristiano_466
+Cristiano_467,Cancer,Bile Duct Cancer,Cristiano_467
+Cristiano_468,Cancer,Breast Cancer,Cristiano_468
+Cristiano_469,Cancer,Colorectal Cancer,Cristiano_469
+Cristiano_470,Cancer,Colorectal Cancer,Cristiano_470
+Cristiano_471,Cancer,Gastric Cancer,Cristiano_471
+Cristiano_472,Cancer,Gastric Cancer,Cristiano_472
+Cristiano_473,Control,Healthy,Cristiano_473
