@@ -33,7 +33,7 @@ This implementation reproduces LIONHEART's complete pipeline, consisting of two 
 ### Model Training and Prediction
 
 #### Model Pipeline
-- **`scripts/reproduce_model.py`** - Model training and prediction script that:
+- **`model/reproduce_model.py`** - Model training and prediction script that:
   - Loads features from multiple datasets
   - Performs nested leave-one-dataset-out cross-validation for hyperparameter tuning
   - Trains final LASSO logistic regression model with dataset-balanced sample weights
@@ -143,7 +143,7 @@ The script prints max/mean differences and optionally saves the stacked reproduc
 Train the model using nested leave-one-dataset-out cross-validation:
 
 ```bash
-python scripts/reproduce_model.py
+python model/reproduce_model.py
 ```
 
 This script:
@@ -196,6 +196,11 @@ The pipeline generates a CSV file with features for each cell type:
 5. **Insert Size Correction** - Correct fragment length bias
 6. **Megabin Normalization** - Normalize for copy number alterations
 7. **Feature Computation** - Calculate correlation features with cell type masks
+8. **Feature Preprocessing** - Remove near-zero-variance features, standardize rows and columns, reduce dimensionality.
+9. **Nested Leave-One-Dataset-Out Cross-Validation** - Hold out 1 dataset for validation (8 train / 1 test in CV; 9 train / 1 validation for final model)
+10. **Model Selection** - Choose the simplest model within one-standard-error of the best balanced accuracy.
+11. **Model training** - Train LASSO Logistic Regression
+12. **Evaluation** - Evaluate on ZhuValidation dataset
 
 ## Resources
 
